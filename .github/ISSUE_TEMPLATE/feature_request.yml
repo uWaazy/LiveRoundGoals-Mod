@@ -1,0 +1,28 @@
+name: 💡 Feature Request / Suggestion
+description: Suggest a new competition theme, layout improvement, or feature for LiveRoundGoals.
+title: "[Suggestion]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea to make **LiveRoundGoals** even better? Share it below!
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - New Competition Theme / Colors
+        - In-Game Goal Notification Overlay
+        - Round Results Panel (Pause / Halftime / Fulltime)
+        - Master League Sync / Standings Logic
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Describe your suggestion
+      placeholder: Explain what you would like to see added or improved and how it should behave in-game.
+    validations:
+      required: true

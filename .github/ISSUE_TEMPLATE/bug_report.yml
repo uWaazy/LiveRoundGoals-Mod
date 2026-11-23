@@ -1,0 +1,55 @@
+name: 🐛 Bug Report
+description: Report a bug, crash, visual issue, or competition/patch incompatibility in LiveRoundGoals.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please fill in the details below so we can reproduce and fix the issue quickly.
+  - type: dropdown
+    id: game_version
+    attributes:
+      label: Game / Executable Version
+      options:
+        - eFootball PES 2021 (Steam v1.07.02)
+        - eFootball PES 2021 (CPY v1.1.0)
+        - SP Football Life (2024 / 2025 / 2026 / 2027)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: patch_name
+    attributes:
+      label: Patch Installed
+      placeholder: "e.g., BMPES, SmokePatch, VirtuaRED, Dream Patch, Vanilla"
+    validations:
+      required: true
+  - type: input
+    id: competition
+    attributes:
+      label: Competition / Game Mode
+      placeholder: "e.g., Master League - Brasileirão, Libertadores, Champions League"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the bug clearly (overlay, Round Results panel, controller buttons, sync, etc.).
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Start a match in...
+        2. Press Pause / wait for goal...
+        3. See error...
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Logs (`modules/LiveRoundGoals/live_debug.log`)
+      description: Paste the last lines of `live_debug.log` or attach screenshots if possible.
+      render: text
