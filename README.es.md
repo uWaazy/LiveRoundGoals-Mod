@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚽ LiveRoundGoals v1.1
+# ⚽ LiveRoundGoals v1.2
 
 **Notificaciones de Gol en la Jornada estilo TV y Resultados en Tiempo Real para eFootball PES 2021 (Sider)**
 
@@ -54,7 +54,7 @@
 
 > Compatible con **cualquier parche de PES 2021** (BMPES, SmokePatch, Football Life, VirtuaRED, Dream Patch, etc.) que use **Sider**.
 
-1. Descarga **`LiveRoundGoals_v1.1.zip`** desde la pestaña [Releases](../../releases) (o copia la carpeta `modules` de este paquete).
+1. Descarga **`LiveRoundGoals_v1.2.zip`** desde la pestaña [Releases](../../releases) (o copia la carpeta `modules` de este paquete).
 2. Extrae/copia la carpeta **`modules`** dentro de tu carpeta principal de PES 2021 / Sider (donde está `sider.ini`).
 3. Abre **`sider.ini`** con el Bloc de notas y verifica que estas opciones estén activadas:
    ```ini
@@ -94,5 +94,5 @@
 
 ## 🛡️ Compatibilidad e Integridad
 
-- Compatible con ejecutables **Steam v1.17.02** y **CPY v1.1.0**.
+- Compatible con ejecutables **Steam v1.27.02** y **CPY v1.2.0**.
 - Renderizado nativo en C++ / Direct2D / D3D11 con sello de integridad entre `LiveRoundGoals.lua` y `LiveRoundGoals.dll`. No modifiques ni renombres `LiveRoundGoals.lua`.

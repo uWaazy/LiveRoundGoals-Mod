@@ -1,4 +1,4 @@
-local m = { version = "\049\046\049" }
+local m = { version = "\049\046\050" }
 local _x1c = "\091\076\105\118\101\082\111\117\110\100\071\111\097\108\115\093"
 local ffi = ffi
 local bit = bit
@@ -128,6 +128,7 @@ scale = 0.80,
 off_x = 0.0,
 off_y = 0.0,
 duration = 7.8,
+sound_volume = 0.65,
 auto_fade = true,
 group_filter_mode = 1,
 is_multi_group = false,
@@ -212,6 +213,7 @@ f:write(string.format("\115\099\097\108\101\061\037\046\050\102\010", S.scale))
 f:write(string.format("\111\102\102\095\120\061\037\046\049\102\010", S.off_x))
 f:write(string.format("\111\102\102\095\121\061\037\046\049\102\010", S.off_y))
 f:write(string.format("\100\117\114\097\116\105\111\110\061\037\046\049\102\010", S.duration))
+f:write(string.format("\115\111\117\110\100\095\118\111\108\117\109\101\061\037\046\050\102\010", S.sound_volume))
 f:write(string.format("\097\117\116\111\095\102\097\100\101\061\037\100\010", S.auto_fade and 1 or 0))
 f:write(string.format("\103\114\111\117\112\095\102\105\108\116\101\114\095\109\111\100\101\061\037\100\010", S.group_filter_mode))
 f:close()
@@ -230,6 +232,7 @@ elseif k == "\115\099\097\108\101" and num >= 0.50 and num <= 1.50 then S.scale 
 elseif k == "\111\102\102\095\120" then S.off_x = num
 elseif k == "\111\102\102\095\121" then S.off_y = num
 elseif k == "\100\117\114\097\116\105\111\110" and num >= 3.0 and num <= 15.0 then S.duration = num
+elseif k == "\115\111\117\110\100\095\118\111\108\117\109\101" and num >= 0.0 and num <= 1.0 then S.sound_volume = num
 elseif k == "\097\117\116\111\095\102\097\100\101" then S.auto_fade = (num ~= 0)
 elseif k == "\103\114\111\117\112\095\102\105\108\116\101\114\095\109\111\100\101" and num >= 0 and num <= 2 then S.group_filter_mode = math.floor(num)
 end
@@ -376,21 +379,63 @@ local s = nm:gsub("\037\115\042\037\040\037\115\042\037\117\037\117\037\115\042\
 return s ~= "" and s or nm
 end
 local function _x2e()
-local candidates_txt = {
+local is_fl = (ffi.C._x01("\070\076\095\050\048\050\055\046\101\120\101") ~= nil)
+or (ffi.C._x01("\070\076\095\050\048\050\054\046\101\120\101") ~= nil)
+or (ffi.C._x01("\070\076\095\050\048\050\053\046\101\120\101") ~= nil)
+local sd_low = (S.sider_dir or ""):lower()
+local is_gogosz = sd_low:find("\103\111\103\111\115\122", 1, true) ~= nil
+local is_marfut = sd_low:find("\109\097\114\102\117\116", 1, true) ~= nil
+for _, root in ipairs(S.cpk_roots) do
+local rlow = root:lower()
+if rlow:find("\103\111\103\111\115\122", 1, true) then
+is_gogosz = true
+elseif rlow:find("\109\097\114\102\117\116", 1, true) then
+is_marfut = true
+end
+end
+local is_gogosz_world = false
+if is_gogosz then
+local wf = io.open(S.sider_dir .. "\109\111\100\117\108\101\115\092\117\099\108\095\115\099\104\101\100\117\108\101\095\112\114\111\098\101\046\108\117\097", "\114\098")
+if wf then
+wf:close()
+is_gogosz_world = true
+end
+end
+local candidates_txt = is_fl and {
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\095\102\108\050\055\046\116\120\116",
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\046\116\120\116",
+} or (is_marfut and {
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\095\109\097\114\102\117\116\095\119\111\114\108\100\046\116\120\116",
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\046\116\120\116",
+} or (is_gogosz_world and {
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\095\103\111\103\111\115\122\095\119\111\114\108\100\046\116\120\116",
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\095\103\111\103\111\115\122\095\099\111\110\109\101\098\111\108\046\116\120\116",
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\046\116\120\116",
+} or (is_gogosz and {
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\095\103\111\103\111\115\122\095\099\111\110\109\101\098\111\108\046\116\120\116",
+S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\046\116\120\116",
+} or {
 S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\101\097\109\115\046\116\120\116",
 S.sider_dir .. "\109\111\100\117\108\101\115\092\103\111\108\095\114\111\100\097\100\097\092\116\101\097\109\115\046\116\120\116",
-}
+})))
 for _, txt_path in ipairs(candidates_txt) do
 local tf = io.open(txt_path, "\114")
 if tf then
 local loaded = 0
 for line in tf:lines() do
-local id_s, nm = line:match("\094\040\037\100\043\041\061\040\046\043\041\036")
+line = line:gsub("\094\239\187\191", ""):gsub("\013\036", "")
+if not line:match("\094\037\115\042\091\035\059\093") then
+local id_s, nm = line:match("\094\037\115\042\040\037\100\043\041\037\115\042\091\061\044\009\093\037\115\042\040\046\043\041\037\115\042\036")
+if not id_s then
+id_s, nm = line:match("\094\037\115\042\040\037\100\043\041\037\115\043\040\046\043\041\037\115\042\036")
+end
 if id_s and nm then
+nm = nm:gsub("\094\034\040\046\045\041\034\036", "\037\049"):gsub("\094\037\115\043", ""):gsub("\037\115\043\036", "")
 local tid = tonumber(id_s)
-if tid and tid > 0 then
+if tid and tid > 0 and nm ~= "" then
 S.team_names[tid] = clean_team_display_name(nm)
 loaded = loaded + 1
+end
 end
 end
 end
@@ -473,9 +518,12 @@ local tid = _x25(raw_id) or (raw_id > 0 and raw_id < 262144 and raw_id or nil)
 if tid then
 local raw_nm = chunk:sub(base_off + 0x13c, base_off + 0x13c + 69)
 local nm = raw_nm:match("\094\040\091\094\037\122\093\043\041")
-if nm and #nm >= 2 and not S.team_names[tid] then
-S.team_names[tid] = clean_team_display_name(nm)
+if nm and #nm >= 2 then
+local clean = clean_team_display_name(nm)
+if S.team_names[tid] ~= clean then
+S.team_names[tid] = clean
 ram_added = ram_added + 1
+end
 end
 end
 end
@@ -690,10 +738,11 @@ end
 return list[math.random(1, n)]
 end
 local function _x35()
+if S.sound_volume <= 0.005 then return end
 if audio and S.sound_path ~= "" then
 local snd = audio.new(S.sound_path)
 if snd then
-snd:set_volume(0.65)
+snd:set_volume(S.sound_volume)
 snd:play()
 end
 end
@@ -1429,7 +1478,7 @@ local set_round_match = fn("\095\108\114\103\095\049\048", "\118\111\105\100\032
 local set_round_menu_state = fn("\095\108\114\103\095\049\049", "\118\111\105\100\032\040\042\041\040\105\110\116\044\032\099\111\110\115\116\032\099\104\097\114\032\042\044\032\105\110\116\041")
 local round_step_tab = fn("\095\108\114\103\095\049\050", "\118\111\105\100\032\040\042\041\040\105\110\116\041")
 local clear = fn("\095\108\114\103\095\049\051", "\118\111\105\100\032\040\042\041\040\118\111\105\100\041")
-local get_overlay = fn("\095\108\114\103\095\049\052", "\099\111\110\115\116\032\099\104\097\114\032\042\040\042\041\040\105\110\116\044\032\105\110\116\044\032\105\110\116\044\032\105\110\116\044\032\105\110\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\105\110\116\044\032\105\110\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\105\110\116\041")
+local get_overlay = fn("\095\108\114\103\095\049\052", "\099\111\110\115\116\032\099\104\097\114\032\042\040\042\041\040\105\110\116\044\032\105\110\116\044\032\105\110\116\044\032\105\110\116\044\032\105\110\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\105\110\116\044\032\105\110\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\105\110\116\044\032\102\108\111\097\116\041")
 if not (install and set_theme and set_layout and push_goal and clear and get_overlay) then
 _x1e("\069\120\112\111\114\116\115\032\097\117\115\101\110\116\101\115\032\101\109\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108")
 return false
@@ -1556,13 +1605,20 @@ S.scale, S.duration,
 S.auto_fade and 1 or 0,
 S.ball_in_corner and 1 or 0,
 S.screen_u, S.screen_v,
-S.group_filter_mode
+S.group_filter_mode,
+S.sound_volume
 )
 if ptr == nil then return "" end
 return ffi.string(ptr)
 end
 function m.key_down(ctx, vkey)
-if vkey == 0x36 then
+if vkey == 0x34 then
+S.sound_volume = math.max(0.0, math.floor((S.sound_volume - 0.10) * 100 + 0.5) / 100)
+_x27()
+elseif vkey == 0x35 then
+S.sound_volume = math.min(1.0, math.floor((S.sound_volume + 0.10) * 100 + 0.5) / 100)
+_x27()
+elseif vkey == 0x36 then
 if S.group_filter_mode == 1 then
 S.group_filter_mode = 2
 elseif S.group_filter_mode == 2 then
@@ -1614,6 +1670,7 @@ S.corner = 3
 S.scale = 0.80
 S.off_x, S.off_y = 0.0, 0.0
 S.duration = 7.8
+S.sound_volume = 0.65
 S.auto_fade = true
 S.group_filter_mode = 1
 _x26()
@@ -1665,7 +1722,7 @@ return (st == 2 or st == 3)
 end
 local function _x4c(ctx)
 S.frames = S.frames + 1
-if S.dll and not S.dll_installed and S.frames >= 120 and S.dll_install_tries < 3 then
+if S.dll and not S.dll_installed and S.frames >= 120 and (S.frames % 60) == 0 and S.dll_install_tries < 20 then
 S.dll_install_tries = S.dll_install_tries + 1
 if S.dll.install(S.dll.dir) == 1 then
 S.dll_installed = true
@@ -1783,7 +1840,7 @@ S.debug_log_path = S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\
 S.cfg_path = S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\099\111\110\102\105\103\046\105\110\105"
 local lf = io.open(S.debug_log_path, "\119")
 if lf then
-lf:write(string.format("\061\061\061\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\032\118\049\046\049\032\076\105\118\101\032\068\101\098\117\103\032\105\110\105\099\105\097\100\111\032\101\109\032\037\115\032\061\061\061\010", os.date("\037\089\045\037\109\045\037\100\032\037\072\058\037\077\058\037\083")))
+lf:write(string.format("\061\061\061\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\032\118\049\046\050\032\076\105\118\101\032\068\101\098\117\103\032\105\110\105\099\105\097\100\111\032\101\109\032\037\115\032\061\061\061\010", os.date("\037\089\045\037\109\045\037\100\032\037\072\058\037\077\058\037\083")))
 lf:close()
 end
 _x28()
