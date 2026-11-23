@@ -4,7 +4,7 @@
 
 **Notificações de Gol na Rodada estilo TV & Resultados da Rodada em Tempo Real para eFootball PES 2021 (Sider)**
 
-[![Versão](https://img.shields.io/badge/vers%C3%A3o-1.0-00e676?style=for-the-badge)](../../releases)
+[![Versão](https://img.shields.io/badge/vers%C3%A3o-1.2-00e676?style=for-the-badge)](../../releases)
 [![PES 2021](https://img.shields.io/badge/eFootball-PES%202021%20%2F%20FL-132544?style=for-the-badge)](#compatibilidade)
 [![Sider](https://img.shields.io/badge/Sider-LuaJIT%20%2B%20D3D11-f7c600?style=for-the-badge)](#instalação)
 

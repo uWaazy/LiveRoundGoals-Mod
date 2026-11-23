@@ -4,7 +4,7 @@
 
 **Real-Time Broadcast Goal Notifications & Live Round Results for eFootball PES 2021 (Sider)**
 
-[![Version](https://img.shields.io/badge/version-1.0-00e676?style=for-the-badge)](../../releases)
+[![Version](https://img.shields.io/badge/version-1.2-00e676?style=for-the-badge)](../../releases)
 [![PES 2021](https://img.shields.io/badge/eFootball-PES%202021%20%2F%20FL-132544?style=for-the-badge)](#compatibility)
 [![Sider](https://img.shields.io/badge/Sider-LuaJIT%20%2B%20D3D11-f7c600?style=for-the-badge)](#installation)
 
