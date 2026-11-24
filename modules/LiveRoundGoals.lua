@@ -1722,7 +1722,7 @@ return (st == 2 or st == 3)
 end
 local function _x4c(ctx)
 S.frames = S.frames + 1
-if S.dll and not S.dll_installed and S.frames >= 120 and (S.frames % 60) == 0 and S.dll_install_tries < 20 then
+if S.dll and not S.dll_installed and S.frames >= 180 and (S.frames % 60) == 0 and S.dll_install_tries < 30 then
 S.dll_install_tries = S.dll_install_tries + 1
 if S.dll.install(S.dll.dir) == 1 then
 S.dll_installed = true
