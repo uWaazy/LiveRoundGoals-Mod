@@ -120,5 +120,5 @@
 > 🆓 **MOD 100% GRATUITO:** O LiveRoundGoals é totalmente grátis. **Se você pagou para alguém por este mod, você foi enganado.**
 
 - ✅ **Permitido:** Download gratuito e uso pessoal, não comercial e offline no PES 2021 / SP Football Life.
-- ❌ **Proibido sem autorização:** Reupar/espelhar os arquivos, incluir em patches ou modpacks de terceiros, venda/uso comercial, ou engenharia reversa/modificação de `LiveRoundGoals.dll` e `LiveRoundGoals.lua`.
+- ❌ **Proibido sem autorização do autor (uWaazy):** Reupar/espelhar os arquivos, incluir em patches ou modpacks de terceiros *(criadores de patches interessados em integração nativa devem entrar em contato com uWaazy)*, venda/uso comercial, ou engenharia reversa/modificação de `LiveRoundGoals.dll` e `LiveRoundGoals.lua`.
 - ⚠️ **Isenção de Responsabilidade:** Fornecido **"NO ESTADO EM QUE SE ENCONTRA" ("AS IS")**, sem garantias. Uso destinado exclusivamente a modos offline (Master Liga, Liga, Copa).
