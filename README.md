@@ -110,3 +110,15 @@
   - ✅ **VirtuaRED / Dream Patch / SmokePatch / Other Sider Patches** *(automatic live career RAM club discovery up to 3,200 slots + native `.cpk` emblem reader)*
 - Supports **Steam v1.07.02** and **CPY v1.1.0** (`PES2021.exe` & `FL_2027.exe`) executables with any Sider 7.x build and XInput or DirectInput (DualSense/DualShock/USB) controllers.
 - Native C++ / Direct2D / D3D11 rendering with integrity verification sealed between `LiveRoundGoals.lua` and `LiveRoundGoals.dll`. Do not rename or modify `LiveRoundGoals.lua`.
+
+---
+
+## 📜 License & Terms of Use
+
+**Copyright © 2026 uWaazy — All Rights Reserved.** See the full [LICENSE](LICENSE) file.
+
+> 🆓 **100% FREE MOD:** LiveRoundGoals is completely free. **If you paid anyone for this mod, you were scammed.**
+
+- ✅ **Allowed:** Free download and personal, non-commercial offline use in PES 2021 / SP Football Life.
+- ❌ **Prohibited without permission:** Re-uploading/mirroring files, bundling into third-party patches/modpacks, commercial use/resale, or reverse-engineering/modifying `LiveRoundGoals.dll` and `LiveRoundGoals.lua`.
+- ⚠️ **Disclaimer:** Provided **"AS IS"** without warranty. Intended strictly for offline modes (Master League, League, Cup).

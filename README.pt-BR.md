@@ -110,3 +110,15 @@
   - ✅ **VirtuaRED / Dream Patch / SmokePatch / Outros Patches Sider** *(leitura automática de até 3.200 clubes direto da RAM da Master Liga + leitor nativo de escudos direto dos arquivos `.cpk`)*
 - Compatível com executáveis **Steam v1.07.02** e **CPY v1.1.0** (`PES2021.exe` e `FL_2027.exe`), qualquer versão do Sider 7.x e controles XInput ou DirectInput (DualSense/DualShock/USB).
 - Renderização nativa em C++ / Direct2D / D3D11 com selo de integridade entre `LiveRoundGoals.lua` e `LiveRoundGoals.dll`. Não modifique nem renomeie o arquivo `LiveRoundGoals.lua`.
+
+---
+
+## 📜 Licença e Termos de Uso
+
+**Copyright © 2026 uWaazy — Todos os Direitos Reservados.** Leia o arquivo completo em [LICENSE](LICENSE).
+
+> 🆓 **MOD 100% GRATUITO:** O LiveRoundGoals é totalmente grátis. **Se você pagou para alguém por este mod, você foi enganado.**
+
+- ✅ **Permitido:** Download gratuito e uso pessoal, não comercial e offline no PES 2021 / SP Football Life.
+- ❌ **Proibido sem autorização:** Reupar/espelhar os arquivos, incluir em patches ou modpacks de terceiros, venda/uso comercial, ou engenharia reversa/modificação de `LiveRoundGoals.dll` e `LiveRoundGoals.lua`.
+- ⚠️ **Isenção de Responsabilidade:** Fornecido **"NO ESTADO EM QUE SE ENCONTRA" ("AS IS")**, sem garantias. Uso destinado exclusivamente a modos offline (Master Liga, Liga, Copa).
