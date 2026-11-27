@@ -1,14 +1,19 @@
 <div align="center">
 
-# ⚽ LiveRoundGoals v1.3
+# ⚽ LiveRoundGoals v1.4
 
-**Notificaciones de Gol en la Jornada estilo TV y Resultados en Tiempo Real para eFootball PES 2021 (Sider)**
+**Notificaciones de Gol en la Jornada estilo TV con Transición 3D, Temas Personalizables y Resultados en Tiempo Real para eFootball PES 2021 (Sider)**
 
-[![Versión](https://img.shields.io/badge/versi%C3%B3n-1.3-00e676?style=for-the-badge)](../../releases)
+[![Versión](https://img.shields.io/badge/versi%C3%B3n-1.4-00e676?style=for-the-badge)](../../releases)
 [![PES 2021](https://img.shields.io/badge/eFootball-PES%202021%20%2F%20FL-132544?style=for-the-badge)](#compatibilidad)
 [![Sider](https://img.shields.io/badge/Sider-LuaJIT%20%2B%20D3D11-f7c600?style=for-the-badge)](#instalación)
+[![Temas](https://img.shields.io/badge/Temas%20y%20Fuentes-Gu%C3%ADa-ff9f1c?style=for-the-badge)](THEMES_GUIDE.md)
 
 **Idiomas:** 🇺🇸 [English](README.md) | 🇧🇷 [Português (Brasil)](README.pt-BR.md) | 🇪🇸 **Español**
+
+<br/>
+
+<img src="Previews/preview_3d_transition.gif" alt="LiveRoundGoals v1.4 — Vista Previa Transición 3D del Balón" width="82%"/>
 
 </div>
 
@@ -16,20 +21,23 @@
 
 ## ✨ Características
 
+- **⚽ Transición 3D Suave del Balón (Estilo TV "Gol da Rodada"):**
+  - Animación 3D fluida en GPU de un balón giratorio que despliega suavemente la tarjeta de gol sin tirones.
+  - Cambia el estilo en vivo con **`F11`** o en `theme.ini` (`Balón 3D Globo [Defecto]`, `Balón 3D Rebote`, `Deslize TV`, `Zoom Suave`).
+- **🎨 Temas y Fuentes Personalizables ([Ver Guía de Temas](THEMES_GUIDE.md)):**
+  - Personaliza colores, opacidad, bordes, transición 3D y **cualquier fuente de Windows o archivo `.ttf`/`.otf`** en `modules\LiveRoundGoals\themes\<tema>\theme.ini`.
+  - Incluye 3 temas listos (`globo_classic`, `ucl_neon`, `minimal_dark`) intercambiables con **`F7`** + soporte para compartir temas en GitHub!
+- **🌟 Soporte Oficial para Liga Máster y Ser una Leyenda (BAL):**
+  - Funciona oficialmente en **Liga Máster** y **Ser una Leyenda (BAL)**, incluyendo entrada desde el banquillo en la 2ª parte sin spam de tarjetas antiguas.
+- **📅 Filtro de Jornada Alternable (`F8`):**
+  - **Mismo Día y Hora (Por defecto):** Muestra solo los partidos del mismo día y horario que tu encuentro.
+  - **Jornada Completa:** Pulsa **`F8`** (o `[2]` en Sider) para alternar y ver todos los partidos de la jornada.
 - **📺 Alertas de Gol estilo Transmisión de TV:**
-  - Tarjetas nativas en Direct3D 11 / Direct2D mostradas en tiempo real cada vez que hay un gol en otros partidos de la jornada en Liga Master, Liga o Copa.
-  - Temas visuales dinámicos para **25+ competiciones oficiales** (UEFA Champions League, Europa League, Supercopa de la UEFA, UEFA Euro, Copa del Mundo FIFA, Mundial de Clubes FIFA, CONMEBOL Libertadores, Sudamericana, Recopa, Copa América, Brasileirão Série A/B/C/D, Copa do Brasil, Supercopa do Brasil, Paulistão, Premier League, EFL Championship, FA Cup, LaLiga, LaLiga Hypermotion, Copa del Rey, Serie A, Serie BKT, Coppa Italia, Bundesliga, DFB-Pokal, Ligue 1, Ligue 2 BKT, Coupe de France, Eredivisie, KNVB Beker, Liga Portugal, Taça de Portugal, Liga Profesional Argentina, Copa Argentina, AFC Champions League y más) con escudos reales y logos oficiales de `Competition.bin`.
-  - **Destacados de Transmisión en Vivo (`DOBLETE` / `HAT-TRICK!` / `GOLEADA`):** Etiqueta automáticamente dobletes (`(DOBLETE)`), `HAT-TRICK!` (3+ goles) y partidos con diferencia de 3+ goles (`• GOLEADA`) tanto en la tarjeta de gol como en el panel de la jornada, agrupando múltiples goles del mismo jugador en una sola línea compacta.
-  - **Clasificación en Vivo (`▲` / `▼`):** Muestra la posición actual de cada equipo y cuántos puestos sube o baja en el instante del gol.
-  - **Filtro Inteligente de Fase de Grupos (Activo por Defecto):** En torneos de grupos, las alertas durante el partido muestran por defecto solo los goles de **tu grupo** (configurable en el panel de Sider con la tecla `[6]`).
-  - **Soporte Multi-Idioma (`PT-BR` / `EN` / `ES`) con Auto-Detección Inteligente del Idioma del Juego:** Detecta automáticamente el idioma activo de tu PES 2021 / Football Life al iniciar por primera vez (`Español España / LATAM` -> `ES`, `Portugués BR / PT` -> `PT`, `Inglés` -> `EN` mediante `lang=auto`), y permite cambiar el idioma en tiempo real con la tecla **`[3]`** en Sider o mediante `lang=auto` / `pt` / `en` / `es` en `modules\LiveRoundGoals\config.ini`.
-  - **Sonido de Gol Sincronizado y Control de Volumen (`[4]` / `[5]`):** Audio sincronizado con la entrada de la tarjeta en pantalla (`0%` Silencio a `100%`, guardado en `config.ini`; admite audio personalizado en `content\LiveRoundGoals\gol.wav`).
+  - Tarjetas nativas D3D11/Direct2D con temas para **25+ competiciones oficiales**, `DOBLETE` / `HAT-TRICK!` / `GOLEADA`, clasificación en vivo (`▲` / `▼`), filtro de grupos (`[6]`), multi-idioma (`PT-BR` / `EN` / `ES` + `F6`) y sonido sincronizado (`[4]` / `[5]`).
 - **🫥 Transparencia Inteligente (Auto-Fade con el Balón):**
-  - La tarjeta se vuelve transparente (`25%`) automáticamente solo cuando el jugador con el balón pasa justo por encima de la esquina donde aparece el marcador.
-- **📊 Panel de Resultados de la Jornada (Pausa / Descanso / Final del Partido):**
-  - Comienza **desactivado por defecto** en una barra inferior compacta (sin tapar las estadísticas del partido) y acompaña suavemente la animación de entrada del menú de PES 2021.
-  - Pulsa **`R3` / `L3`** para abrir la **Cuadrícula Doble Broadcast (2 Columnas)** con los partidos simultáneos/restantes de la jornada, marcadores, goleadores y posiciones.
-  - **100% Sincronizado con Liga Master:** Todos los marcadores mostrados en vivo se registran exactamente en la tabla oficial de la competición.
+  - Se vuelve transparente (`25%`) solo cuando el balón pasa por la esquina ocupada por la tarjeta.
+- **📊 Panel de Resultados de la Jornada (Pausa / Descanso / Final):**
+  - Navega con **`R3` / `L3`** en mando **o** **`]` / `[`** (`RePág` / `AvPág`, `Numpad 7/9`) en teclado para abrir la **Cuadrícula Doble Broadcast (2 Columnas)**.
 
 ---
 
@@ -58,9 +66,9 @@
 
 ## 📦 Instalación
 
-> Compatible con **cualquier parche de PES 2021** (BMPES, SmokePatch, Football Life, VirtuaRED, Dream Patch, etc.) que use **Sider**.
+> ⚠️ **Aviso de Compatibilidad de Parches:** Este mod fue **creado y desarrollado sobre BMPES**, y recibió **algunas correcciones para SP Football Life 2027 (FL27)** *(puede funcionar o no según tu instalación)*. Sobre **otros parches**, no garantizamos que funcione correctamente.
 
-1. Descarga **`LiveRoundGoals_v1.3.zip`** desde la pestaña [Releases](../../releases) (o copia la carpeta `modules` de este paquete).
+1. Descarga **`LiveRoundGoals_v1.4.zip`** desde la pestaña [Releases](../../releases) (o copia la carpeta `modules` de este paquete).
 2. Extrae/copia la carpeta **`modules`** dentro de tu carpeta principal de PES 2021 / Sider (donde está `sider.ini`).
 3. Abre **`sider.ini`** con el Bloc de notas y verifica que estas opciones estén activadas:
    ```ini
@@ -75,41 +83,50 @@
 
 ---
 
-## 🎮 Controles
+## 🎮 Controles (Mando y Teclado Sin Conflictos)
 
 ### Dentro del Menú de Pausa / Descanso / Final del Partido
-| Botón / Tecla | Acción |
-| :--- | :--- |
-| **`R3`** (Clic en Stick Derecho) / **`]`** | Abrir Resultados de la Jornada / Página Siguiente |
-| **`L3`** (Clic en Stick Izquierdo) / **`[`** | Página Anterior / Volver a Estadísticas |
-| **`Y` / Triángulo** o **`SELECT`** o **`F10`** | Ocultar / Mostrar Overlay |
+| Mando | Teclado *(teclas libres, sin conflicto)* | Acción |
+| :--- | :--- | :--- |
+| **`R3`** *(Clic Stick Derecho)* | **`]`** o **`AvPág`** o **`Numpad 9`** | Abrir Resultados de la Jornada / Página Siguiente |
+| **`L3`** *(Clic Stick Izquierdo)* | **`[`** o **`RePág`** o **`Numpad 7`** | Página Anterior / Volver a Estadísticas |
+| **`Y` / Triángulo** o **`SELECT`** | **`F10`** o **`Numpad 0`** | Ocultar / Mostrar Overlay |
+| **`A` / `X`** | **`Backspace`** | Cerrar Panel y Volver a Estadísticas |
 
-### Durante el Partido y en el Panel de Sider (`Barra Espaciadora`)
-| Botón / Tecla | Acción |
+### Atajos Globales de Teclado *(funcionan en cualquier momento sin abrir Sider)*
+| Tecla | Acción |
 | :--- | :--- |
-| **`SELECT + L3`** o **`F10`** | Ocultar / Mostrar Alertas en el Partido |
-| **`F9`** | Lanzar Notificación de Prueba *(enfriamiento de 3s)* |
-| **`[3]`** *(en el panel de Sider)* | Cambiar Idioma (`PT-BR` / `EN` / `ES` — guardado en `config.ini`) |
-| **`[4]` / `[5]`** *(en el panel de Sider)* | Bajar / Subir Volumen del Sonido de Gol (`-10%` / `+10%`) |
-| **`[6]`** *(en el panel de Sider)* | Cambiar Filtro de Grupos *(Solo Mi Grupo [Defecto] / Overlay + Menú / Toda la Jornada)* |
-| **`[7]`** *(en el panel de Sider)* | Cambiar Esquina de Pantalla |
-| **`[8]` / `[9]`** *(en el panel de Sider)* | Reducir / Aumentar Escala (`-5%` / `+5%`) |
-| **`[-]` / `[=]`** y **`RePág` / `AvPág`** *(en Sider)* | Ajuste Fino de Posición X / Y |
-| **`[0]`** *(en el panel de Sider)* | Activar / Desactivar Auto-Fade con el Balón |
-| **`[BACKSPACE]`** *(en el panel de Sider)* | Restaurar Valores por Defecto |
+| **`F6`** | Cambiar Idioma (`PT-BR` / `EN` / `ES`) |
+| **`Insert`** | Cambiar Tema Personalizado (`auto` / carpeta `themes\`) |
+| **`Home`** | Alternar Filtro de Jornada *(Mismo Día/Hora [Defecto] / Jornada Completa)* |
+| **`F9`** | Lanzar Tarjeta 3D de Prueba *(enfriamiento de 3s)* |
+| **`F10`** / **`SELECT + L3`** | Ocultar / Mostrar Overlay en Partido o Menús |
+| **`End`** | Cambiar Transición 3D *(Balón 3D Globo / Rebote / Deslize / Zoom)* |
+
+### Panel de Sider (`Barra Espaciadora`)
+| Tecla *(con el panel de Sider abierto)* | Acción |
+| :--- | :--- |
+| **`[1]`** / **`[2]`** | Cambiar Tema / Alternar Filtro de Jornada |
+| **`[3]`** | Cambiar Idioma (`PT-BR` / `EN` / `ES`) |
+| **`[4]` / `[5]`** | Bajar / Subir Volumen del Sonido de Gol (`-10%` / `+10%`) |
+| **`[6]`** | Cambiar Filtro de Grupos *(Solo Mi Grupo [Defecto] / Overlay + Menú / Toda la Jornada)* |
+| **`[7]`** | Cambiar Esquina de Pantalla |
+| **`[8]` / `[9]`** | Reducir / Aumentar Escala (`-5%` / `+5%`) |
+| **`[-]` / `[=]`** y **`RePág` / `AvPág`** | Ajuste Fino de Posición X / Y |
+| **`[0]`** | Activar / Desactivar Auto-Fade con el Balón |
+| **`[U]`** | Instalar Actualización Automática de GitHub *(cuando esté disponible — preserva `config.ini` y temas)* |
+| **`[BACKSPACE]`** | Restaurar Valores por Defecto |
 
 ---
 
-## 🛡️ Parches Compatibles e Integridad
+## 🛡️ Compatibilidad e Integridad
 
-- **Parches con Detección Automática (Bases de Clubes Dedicadas + RAM de Liga Master + Lector Nativo de Escudos desde `.cpk` y `livecpk`):**
-  - ✅ **BMPES**
-  - ✅ **SP Football Life 2027 (`FL27` / `FL26` / `FL25`)**
-  - ✅ **Gogosz Patch (Conmebol & World)**
-  - ✅ **MARFUT Patch (World)**
-  - ✅ **VirtuaRED / Dream Patch / SmokePatch / Otros Parches Sider** *(lectura automática de hasta 3.200 clubes desde la RAM de Liga Master + lector nativo de escudos desde archivos `.cpk`)*
-- Compatible con ejecutables **Steam v1.07.02** y **CPY v1.1.0** (`PES2021.exe` y `FL_2027.exe`), cualquier compilación de Sider 7.x y mandos XInput o DirectInput (DualSense/DualShock/USB).
-- Renderizado nativo en C++ / Direct2D / D3D11 con sello de integridad entre `LiveRoundGoals.lua` y `LiveRoundGoals.dll`. No modifiques ni renombres `LiveRoundGoals.lua`.
+- **Base de Desarrollo:**
+  - ✅ **BMPES** *(parche principal donde se creó y probó el mod)*
+  - ⚠️ **SP Football Life 2027 (`FL27`)** *(incluye correcciones de compatibilidad; puede funcionar o no según la compilación)*
+  - ❓ **Otros Parches (VirtuaRED, Dream Patch, SmokePatch, Gogosz, MARFUT, etc.):** *No garantizamos su funcionamiento, aunque incluye lectura dinámica de RAM y `.cpk`.*
+- Compatible con ejecutables **Steam v1.07.02** y **CPY v1.1.0**, cualquier versión de Sider 7.x, teclado y mandos XInput / DirectInput (DualSense/DualShock/USB).
+- Renderizado nativo en C++ / Direct2D / D3D11 con indexación asíncrona de `.cpk` (cero tirones) y sello de integridad entre `LiveRoundGoals.lua` y `LiveRoundGoals.dll`. No modifiques ni renombres `LiveRoundGoals.lua`.
 
 ---
 

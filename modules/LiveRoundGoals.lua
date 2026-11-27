@@ -1,11 +1,11 @@
-local m = { version = "\049\046\051" }
-local _x1c = "\091\076\105\118\101\082\111\117\110\100\071\111\097\108\115\093"
+local m = { version = "\049\046\052" }
+local _x20 = "\091\076\105\118\101\082\111\117\110\100\071\111\097\108\115\093"
 local ffi = ffi
 local bit = bit
 local memory = memory
 local match = match
 local audio = audio
-if ffi and not ffi._x07 then
+if ffi and not ffi._x0b then
 ffi.cdef[[
 void* _x01(const char*) __asm__("GetModuleHandleA");
 void* _x02(void) __asm__("GetCurrentProcess");
@@ -13,14 +13,18 @@ int _x03(void*, const void*, void*, size_t, size_t*) __asm__("ReadProcessMemory"
 void* _x04(const char*) __asm__("LoadLibraryA");
 void* _x05(void*, const char*) __asm__("GetProcAddress");
 short _x06(int vKey) __asm__("GetAsyncKeyState");
+uint32_t _x07(const char*) __asm__("GetFileAttributesA");
+void* _x08(const char*, void*) __asm__("FindFirstFileA");
+int _x09(void*, void*) __asm__("FindNextFileA");
+int _x0a(void*) __asm__("FindClose");
 ]]
-ffi._x07 = true
+ffi._x0b = true
 end
-local _x08 = {
+local _x0c = {
 { nome = "\067\080\089",   getter = 21719648, guard = "\072\139\005\169\243\036\002\195", owner = 0x3705e10, gmc = 0x36F3DC8, players = 0x36F3FC0, view_rva = 0x1987A20 },
 { nome = "\083\116\101\097\109", getter = 21742928, guard = "\072\139\005\233\124\037\002\195", owner = 0x3714240, gmc = 0x3702208, players = 0x3702400, view_rva = 0x198D3B0 },
 }
-local _x09 = {
+local _x0d = {
 normal = {
 date = 0x1642a1c, count = 0xd0bcf4, regs = 0xc12e9c, rounds = 0xd65f64, events = 0xe9ff08,
 teams = 0xadf4bc, nteams = 0xd0bcec, maxregs = 300, maxteams = 2400
@@ -30,26 +34,26 @@ date = 0x19115e4, count = 0x4877328, regs = 0x1f09830, rounds = 0x447ed20, event
 teams = 0x193f170, nteams = 0x4877320, maxregs = 600, maxteams = 2400
 },
 }
-local _x0a = 788
-local _x0b = 596
-local _x0c = 13000
-local _x0d = 0x17c
-local _x0e = 30000
-local _x0f, _x10, _x11 = 0x30, 0x38, 0x164
-local _x12 = 0x5FC
-local _x13 = 0x08
-local _x14 = 0x170
-local _x15 = 0x1332d25
-local _x16  = "\064\136\123\031\136\075\028"
-local _x17     = "\072\139\116\036\112\072\131\196\048\065\095\065\094\065\093"
-local _x18 = {
+local _x0e = 788
+local _x0f = 596
+local _x10 = 13000
+local _x11 = 0x17c
+local _x12 = 30000
+local _x13, _x14, _x15 = 0x30, 0x38, 0x164
+local _x16 = 0x5FC
+local _x17 = 0x08
+local _x18 = 0x170
+local _x19 = 0x1332d25
+local _x1a  = "\064\136\123\031\136\075\028"
+local _x1b     = "\072\139\116\036\112\072\131\196\048\065\095\065\094\065\093"
+local _x1c = {
 [0] = "\083\117\112\101\114\105\111\114\032\069\115\113\117\101\114\100\111\032\040\065\098\097\105\120\111\032\100\111\032\080\108\097\099\097\114\041",
 [1] = "\083\117\112\101\114\105\111\114\032\068\105\114\101\105\116\111\032\040\065\098\097\105\120\111\032\100\097\032\076\111\103\111\032\084\086\047\080\114\101\109\105\101\114\101\041",
 [2] = "\073\110\102\101\114\105\111\114\032\068\105\114\101\105\116\111\032\040\065\099\105\109\097\032\100\111\032\078\111\109\101\032\100\111\032\074\111\103\097\100\111\114\041",
 [3] = "\073\110\102\101\114\105\111\114\032\069\115\113\117\101\114\100\111\032\040\065\099\105\109\097\032\100\111\032\078\111\109\101\032\100\111\032\074\111\103\097\100\111\114\041",
 }
-local _x19 = { [1] = 3, [3] = 2, [2] = 0, [0] = 1 }
-local _x1a = {
+local _x1d = { [1] = 3, [3] = 2, [2] = 0, [0] = 1 }
+local _x1e = {
 paulistao = { title = "\080\065\085\076\073\083\084\195\131\079",             bg_top = 0xF2071156, bg_bot = 0xF6040A36, hdr = 0xFF0A176E, accent = 0xFFF3531B, hi = 0xFF00FF87, gif = 0, logo_id = 217 },
 br_a      = { title = "\066\082\065\083\073\076\069\073\082\195\131\079\032\083\195\137\082\073\069\032\065",   bg_top = 0xF20B1528, bg_bot = 0xF6060C18, hdr = 0xFF132544, accent = 0xFFF7C600, hi = 0xFF00E676, gif = 0, logo_id = 21  },
 br_b      = { title = "\066\082\065\083\073\076\069\073\082\195\131\079\032\083\195\137\082\073\069\032\066",   bg_top = 0xF20C192C, bg_bot = 0xF6070F1A, hdr = 0xFF102A45, accent = 0xFF00B4D8, hi = 0xFF00E676, gif = 1, logo_id = 194 },
@@ -93,7 +97,7 @@ tacapt    = { title = "\084\065\195\135\065\032\068\069\032\080\079\082\084\085\
 afc       = { title = "\065\070\067\032\067\072\065\077\080\073\079\078\083\032\076\069\065\071\085\069",  bg_top = 0xF20D1428, bg_bot = 0xF6070B16, hdr = 0xFF162244, accent = 0xFF00B4D8, hi = 0xFFFFD166, gif = 0, logo_id = 44  },
 def       = { title = "\067\065\077\080\069\079\078\065\084\079",            title_en = "\067\072\065\077\080\073\079\078\083\072\073\080", title_es = "\067\065\077\080\069\079\078\065\084\079", bg_top = 0xF20E1726, bg_bot = 0xF6080D16, hdr = 0xFF132038, accent = 0xFFF7C600, hi = 0xFF00E676, gif = 0, logo_id = 0 },
 }
-local _x1b = {
+local _x1f = {
 [201] = "\065\076\065\071\079\065\078\079",    [202] = "\065\077\065\090\079\078\069\078\083\069",  [203] = "\066\065\073\065\078\195\131\079",      [204] = "\066\082\065\083\073\076\073\069\078\083\069",
 [205] = "\067\065\082\073\079\067\195\131\079",    [206] = "\067\065\084\065\082\073\078\069\078\083\069", [207] = "\067\069\065\082\069\078\083\069",     [208] = "\071\065\085\067\072\195\131\079",
 [209] = "\071\079\073\065\078\195\131\079",     [210] = "\077\065\082\065\078\072\069\078\083\069",  [211] = "\077\065\084\079\045\071\082\079\083\083\069\078\083\069",[212] = "\077\073\078\069\073\082\195\131\079",
@@ -119,11 +123,12 @@ in_match = false,
 match_init_done = false,
 current_tid = 0,
 current_rid = 0,
-current_theme = _x1a.def,
+current_theme = _x1e.def,
 home_id = 0,
 away_id = 0,
 sim_matches = {},
 earlier_matches = {},
+finished_matches = {},
 timeline = {},
 is_league_table = false,
 base_table = {},
@@ -136,12 +141,17 @@ last_user_as = 0,
 menu_mode = 0,
 saved_parent_menu = 0,
 phase_title = "",
+f6_was_down = false,
+f7_was_down = false,
+f8_was_down = false,
 f9_was_down = false,
+f11_was_down = false,
 sound_path = "",
 frames = 0,
 sim_cave = nil,
 sim_data = nil,
 sim_hooked = false,
+debug_log = false,
 debug_log_path = "",
 cfg_path = "",
 sync_logged = {},
@@ -156,6 +166,13 @@ lang_auto = true,
 last_f9_clock = -10.0,
 auto_fade = true,
 group_filter_mode = 1,
+round_scope = 0,
+theme_name = "\097\117\116\111",
+theme_list = { "\097\117\116\111" },
+custom_theme = nil,
+anim_mode = 0,
+font_family = "",
+font_file = "",
 is_multi_group = false,
 fade_alpha = 0.25,
 ball_in_corner = false,
@@ -163,42 +180,46 @@ last_active_slot = nil,
 screen_u = -1.0,
 screen_v = -1.0,
 }
-local function _x1d(fmt, ...)
+local function _x21(p)
+if not p or p == "" then return false end
+return ffi.C._x07(p) ~= 0xFFFFFFFF
+end
+local function _x22(fmt, ...)
+if not S.debug_log then return end
 local msg = string.format(fmt, ...)
-log(string.format("\037\115\032\037\115", _x1c, msg))
+log(string.format("\037\115\032\037\115", _x20, msg))
 if S.debug_log_path ~= "" then
 local f = io.open(S.debug_log_path, "\097")
 if f then
 f:write(string.format("\091\037\115\093\032\037\115\010", os.date("\037\072\058\037\077\058\037\083"), msg))
-f:flush()
 f:close()
 end
 end
 end
-local function _x1e(fmt, ...)
-_x1d(fmt, ...)
+local function _x23(fmt, ...)
+_x22(fmt, ...)
 end
-local function _x1f(s, off)
+local function _x24(s, off)
 local b1, b2 = s:byte(off, off + 1)
 if not b1 then return 0 end
 return b1 + b2 * 256
 end
-local function _x20(s, off)
+local function _x25(s, off)
 local b1, b2, b3, b4 = s:byte(off, off + 3)
 if not b1 then return 0 end
 return b1 + b2 * 256 + b3 * 65536 + b4 * 16777216
 end
-local function _x21(s, off)
-local v = _x20(s, off)
+local function _x26(s, off)
+local v = _x25(s, off)
 if v >= 2147483648 then v = v - 4294967296 end
 return v
 end
-local function _x22(s, off)
-local lo = _x20(s, off)
-local hi = _x20(s, off + 4)
+local function _x27(s, off)
+local lo = _x25(s, off)
+local hi = _x25(s, off + 4)
 return lo + hi * 4294967296
 end
-local function _x23(addr, len)
+local function _x28(addr, len)
 if not addr or addr < 0x10000 then return nil end
 local buf = ffi.new("\117\105\110\116\056\095\116\091\063\093", len)
 local got = ffi.new("\115\105\122\101\095\116\091\049\093")
@@ -209,20 +230,20 @@ local n = tonumber(got[0])
 if n < len then return nil end
 return ffi.string(buf, len)
 end
-local function _x24(addr)
-local s = _x23(addr, 8)
+local function _x29(addr)
+local s = _x28(addr, 8)
 if not s then return nil end
-local v = _x22(s, 1)
+local v = _x27(s, 1)
 if v < 0x10000 or v > 0x7fffffffffff then return nil end
 return v
 end
-local function _x25(raw)
+local function _x2a(raw)
 if raw == 4294967295 or raw == 0 then return nil end
 local t = math.floor(raw / 16384)
 if t > 0 and t < 262144 then return t end
 return nil
 end
-local function _x26()
+local function _x2b()
 if not S.dll or not S.dll_installed then return end
 S.dll.set_layout(S.corner, S.scale)
 if S.dll.set_offsets then
@@ -232,12 +253,15 @@ if S.dll.set_lang then
 S.dll.set_lang(S.lang)
 end
 end
-local function _x27()
+local function _x2c()
 if S.cfg_path == "" then return end
 local f = io.open(S.cfg_path, "\119")
 if not f then return end
 local lang_code = (S.lang == 1) and "\101\110" or ((S.lang == 2) and "\101\115" or "\112\116")
 f:write(string.format("\108\097\110\103\061\037\115\010", lang_code))
+f:write(string.format("\116\104\101\109\101\061\037\115\010", S.theme_name or "\097\117\116\111"))
+f:write(string.format("\097\110\105\109\095\109\111\100\101\061\037\100\010", S.anim_mode or 0))
+f:write(string.format("\114\111\117\110\100\095\115\099\111\112\101\061\037\100\010", S.round_scope or 0))
 f:write(string.format("\099\111\114\110\101\114\061\037\100\010", S.corner))
 f:write(string.format("\115\099\097\108\101\061\037\046\050\102\010", S.scale))
 f:write(string.format("\111\102\102\095\120\061\037\046\049\102\010", S.off_x))
@@ -246,16 +270,25 @@ f:write(string.format("\100\117\114\097\116\105\111\110\061\037\046\049\102\010"
 f:write(string.format("\115\111\117\110\100\095\118\111\108\117\109\101\061\037\046\050\102\010", S.sound_volume))
 f:write(string.format("\097\117\116\111\095\102\097\100\101\061\037\100\010", S.auto_fade and 1 or 0))
 f:write(string.format("\103\114\111\117\112\095\102\105\108\116\101\114\095\109\111\100\101\061\037\100\010", S.group_filter_mode))
+if S.font_family and S.font_family ~= "" then
+f:write(string.format("\102\111\110\116\095\102\097\109\105\108\121\061\037\115\010", S.font_family))
+end
+if S.font_file and S.font_file ~= "" then
+f:write(string.format("\102\111\110\116\095\102\105\108\101\061\037\115\010", S.font_file))
+end
+f:write(string.format("\100\101\098\117\103\095\108\111\103\061\037\100\010", S.debug_log and 1 or 0))
 f:close()
 end
-local function _x28()
+local function _x2d()
 S.lang_auto = true
 if S.cfg_path == "" then return end
 local f = io.open(S.cfg_path, "\114")
 if not f then return end
 for line in f:lines() do
-local k, v = line:match("\094\037\115\042\040\091\037\119\095\093\043\041\037\115\042\061\037\115\042\040\091\037\119\095\037\045\037\046\093\043\041\037\115\042\036")
-if k and v then
+line = line:gsub("\013\036", "")
+if not line:match("\094\037\115\042\091\035\059\093") then
+local k, v = line:match("\094\037\115\042\040\091\037\119\095\093\043\041\037\115\042\061\037\115\042\040\046\045\041\037\115\042\036")
+if k and v and v ~= "" then
 if k == "\108\097\110\103" or k == "\108\097\110\103\117\097\103\101" or k == "\105\100\105\111\109\097" then
 local vl = v:lower()
 if vl == "\097\117\116\111" or vl == "\100\101\102\097\117\108\116" or vl == "\045\049" then
@@ -270,6 +303,18 @@ elseif vl == "\112\116" or vl == "\112\116\045\098\114" or vl == "\112\116\098\1
 S.lang = 0
 S.lang_auto = false
 end
+elseif k == "\116\104\101\109\101" then
+S.theme_name = v
+elseif k == "\102\111\110\116\095\102\097\109\105\108\121" then
+S.font_family = v
+elseif k == "\102\111\110\116\095\102\105\108\101" then
+S.font_file = v
+elseif k == "\097\110\105\109\095\109\111\100\101" then
+local vl = v:lower()
+if vl == "\098\097\108\108\051\100" or vl == "\103\108\111\098\111" or vl == "\048" then S.anim_mode = 0
+elseif vl == "\098\097\108\108\051\100\095\098\111\117\110\099\101" or vl == "\098\111\117\110\099\101" or vl == "\049" then S.anim_mode = 1
+elseif vl == "\115\108\105\100\101" or vl == "\050" then S.anim_mode = 2
+elseif vl == "\122\111\111\109" or vl == "\051" then S.anim_mode = 3 end
 else
 local num = tonumber(v)
 if num then
@@ -281,6 +326,9 @@ elseif k == "\100\117\114\097\116\105\111\110" and num >= 3.0 and num <= 15.0 th
 elseif k == "\115\111\117\110\100\095\118\111\108\117\109\101" and num >= 0.0 and num <= 1.0 then S.sound_volume = num
 elseif k == "\097\117\116\111\095\102\097\100\101" then S.auto_fade = (num ~= 0)
 elseif k == "\103\114\111\117\112\095\102\105\108\116\101\114\095\109\111\100\101" and num >= 0 and num <= 2 then S.group_filter_mode = math.floor(num)
+elseif k == "\114\111\117\110\100\095\115\099\111\112\101" and (num == 0 or num == 1) then S.round_scope = math.floor(num)
+elseif k == "\100\101\098\117\103\095\108\111\103" then S.debug_log = (num ~= 0)
+end
 end
 end
 end
@@ -288,8 +336,103 @@ end
 end
 f:close()
 end
-local function _x29()
+local function _x2e(s, fallback)
+if not s then return fallback end
+local hex = s:gsub("\094\035", ""):gsub("\094\048\091\120\088\093", ""):gsub("\037\115\043", "")
+if #hex == 6 then hex = "\070\070" .. hex end
+if #hex == 8 then
+local v = tonumber(hex, 16)
+if v then return v end
+end
+return fallback
+end
+local function _x2f()
+S.theme_list = { "\097\117\116\111" }
+local themes_root = S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\104\101\109\101\115\092"
+local fd = ffi.new("\117\105\110\116\056\095\116\091\051\050\048\093")
+local h = ffi.C._x08(themes_root .. "\042", fd)
+if h == nil or ffi.cast("\105\110\116\112\116\114\095\116", h) == -1 then return end
+local found = {}
+repeat
+local attr = fd[0] + fd[1] * 256 + fd[2] * 65536 + fd[3] * 16777216
+if bit.band(attr, 0x10) ~= 0 then
+local nm = ffi.string(fd + 44)
+if nm ~= "\046" and nm ~= "\046\046" then
+if _x21(themes_root .. nm .. "\092\116\104\101\109\101\046\105\110\105") then
+found[#found + 1] = nm
+end
+end
+end
+until ffi.C._x09(h, fd) == 0
+ffi.C._x0a(h)
+table.sort(found)
+for _, nm in ipairs(found) do
+S.theme_list[#S.theme_list + 1] = nm
+end
+end
+local function _x30(name)
+if not name or name == "" or name:lower() == "\097\117\116\111" then
+S.custom_theme = nil
+return nil
+end
+local dir = S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\116\104\101\109\101\115\092" .. name .. "\092"
+local ini_path = dir .. "\116\104\101\109\101\046\105\110\105"
+local f = io.open(ini_path, "\114")
+if not f then
+S.custom_theme = nil
+return nil
+end
+local ct = {
+id = name,
+bg_top = nil, bg_bot = nil, hdr = nil, accent = nil, hi = nil,
+text_main = 0xFFFFFFFF, text_muted = 0xFFB8C4D8, border_color = 0xCCFFFFFF,
+corner_radius = 8.0, border_width = 1.6, opacity = 1.0,
+font_family = "", font_file = "",
+anim_mode = nil, anim_duration = 0.78,
+ball_primary = 0xFFF8FAFC, ball_secondary = 0xFF111827, ball_accent = 0, ball_spins = 2.2,
+}
+for line in f:lines() do
+line = line:gsub("\094\239\187\191", ""):gsub("\013\036", "")
+if not line:match("\094\037\115\042\091\035\059\037\091\093") then
+local k, v = line:match("\094\037\115\042\040\091\037\119\095\093\043\041\037\115\042\061\037\115\042\040\046\045\041\037\115\042\036")
+if k and v and v ~= "" then
+k = k:lower()
+if k == "\098\103\095\116\111\112" then ct.bg_top = _x2e(v, ct.bg_top)
+elseif k == "\098\103\095\098\111\116" then ct.bg_bot = _x2e(v, ct.bg_bot)
+elseif k == "\104\101\097\100\101\114\095\098\103" or k == "\104\100\114" then ct.hdr = _x2e(v, ct.hdr)
+elseif k == "\097\099\099\101\110\116" then ct.accent = _x2e(v, ct.accent)
+elseif k == "\103\111\097\108\095\104\105" or k == "\104\105" then ct.hi = _x2e(v, ct.hi)
+elseif k == "\116\101\120\116\095\109\097\105\110" then ct.text_main = _x2e(v, ct.text_main)
+elseif k == "\116\101\120\116\095\109\117\116\101\100" then ct.text_muted = _x2e(v, ct.text_muted)
+elseif k == "\098\111\114\100\101\114\095\099\111\108\111\114" then ct.border_color = _x2e(v, ct.border_color)
+elseif k == "\099\111\114\110\101\114\095\114\097\100\105\117\115" then ct.corner_radius = tonumber(v) or ct.corner_radius
+elseif k == "\098\111\114\100\101\114\095\119\105\100\116\104" then ct.border_width = tonumber(v) or ct.border_width
+elseif k == "\111\112\097\099\105\116\121" then ct.opacity = tonumber(v) or ct.opacity
+elseif k == "\102\097\109\105\108\121" or k == "\102\111\110\116\095\102\097\109\105\108\121" then ct.font_family = v
+elseif k == "\102\105\108\101" or k == "\102\111\110\116\095\102\105\108\101" then
+if v:match("\094\037\097\058\092") then ct.font_file = v else ct.font_file = dir .. v end
+elseif k == "\109\111\100\101" or k == "\097\110\105\109\095\109\111\100\101" then
+local vl = v:lower()
+if vl == "\098\097\108\108\051\100" or vl == "\103\108\111\098\111" or vl == "\048" then ct.anim_mode = 0
+elseif vl == "\098\097\108\108\051\100\095\098\111\117\110\099\101" or vl == "\098\111\117\110\099\101" or vl == "\049" then ct.anim_mode = 1
+elseif vl == "\115\108\105\100\101" or vl == "\050" then ct.anim_mode = 2
+elseif vl == "\122\111\111\109" or vl == "\051" then ct.anim_mode = 3 end
+elseif k == "\100\117\114\097\116\105\111\110" or k == "\097\110\105\109\095\100\117\114\097\116\105\111\110" then ct.anim_duration = tonumber(v) or ct.anim_duration
+elseif k == "\098\097\108\108\095\112\114\105\109\097\114\121" then ct.ball_primary = _x2e(v, ct.ball_primary)
+elseif k == "\098\097\108\108\095\115\101\099\111\110\100\097\114\121" then ct.ball_secondary = _x2e(v, ct.ball_secondary)
+elseif k == "\098\097\108\108\095\097\099\099\101\110\116" then ct.ball_accent = _x2e(v, ct.ball_accent)
+elseif k == "\098\097\108\108\095\115\112\105\110\115" then ct.ball_spins = tonumber(v) or ct.ball_spins
+end
+end
+end
+end
+f:close()
+S.custom_theme = ct
+return ct
+end
+local function _x31()
 S.cpk_roots = {}
+S.symbol_roots = {}
 local seen = {}
 local function add_root(r)
 if not r or r == "" then return end
@@ -302,6 +445,9 @@ local key = r:lower()
 if not seen[key] then
 seen[key] = true
 S.cpk_roots[#S.cpk_roots + 1] = r
+if _x21(r .. "\099\111\109\109\111\110\092\114\101\110\100\101\114\092\115\121\109\098\111\108") then
+S.symbol_roots[#S.symbol_roots + 1] = r
+end
 end
 end
 add_root(S.sider_dir .. "\066\077\080\069\083\092\083\101\114\118\105\100\111\114\032\100\101\032\069\109\098\108\101\109\097\115\092")
@@ -316,7 +462,7 @@ end
 ini:close()
 end
 end
-local function _x2b(logo_id)
+local function _x33(logo_id)
 if not logo_id or logo_id <= 0 then return "" end
 if S.comp_logo_cache[logo_id] ~= nil then return S.comp_logo_cache[logo_id] end
 local suffixes = {
@@ -326,12 +472,10 @@ string.format("\099\111\109\109\111\110\092\114\101\110\100\101\114\092\115\121\
 string.format("\099\111\109\109\111\110\092\114\101\110\100\101\114\092\115\121\109\098\111\108\092\101\109\098\108\101\109\076\099\092\101\109\098\095\037\048\052\100\095\108\108\046\112\110\103", logo_id),
 string.format("\099\111\109\109\111\110\092\114\101\110\100\101\114\092\115\121\109\098\111\108\092\101\109\098\108\101\109\076\099\092\101\109\098\095\037\048\052\100\095\119\095\108\108\046\112\110\103", logo_id),
 }
-for _, root in ipairs(S.cpk_roots) do
+for _, root in ipairs(S.symbol_roots or S.cpk_roots) do
 for _, rel in ipairs(suffixes) do
 local p = root .. rel
-local f = io.open(p, "\114\098")
-if f then
-f:close()
+if _x21(p) then
 S.comp_logo_cache[logo_id] = p
 return p
 end
@@ -341,7 +485,7 @@ local cpk_tag = string.format("\064\099\111\109\112\058\037\048\052\100", logo_i
 S.comp_logo_cache[logo_id] = cpk_tag
 return cpk_tag
 end
-local function _x2a(tid)
+local function _x32(tid)
 if not tid or tid <= 0 then return "" end
 if S.emblem_cache[tid] ~= nil then return S.emblem_cache[tid] end
 local suffixes = {
@@ -356,12 +500,10 @@ string.format("\099\111\109\109\111\110\092\114\101\110\100\101\114\092\115\121\
 string.format("\099\111\109\109\111\110\092\114\101\110\100\101\114\092\115\121\109\098\111\108\092\102\108\097\103\092\101\095\037\048\054\100\095\114\095\119\046\112\110\103", tid),
 string.format("\099\111\109\109\111\110\092\114\101\110\100\101\114\092\115\121\109\098\111\108\092\102\108\097\103\092\101\095\037\048\054\100\095\114\095\098\095\108\046\112\110\103", tid),
 }
-for _, root in ipairs(S.cpk_roots) do
+for _, root in ipairs(S.symbol_roots or S.cpk_roots) do
 for _, rel in ipairs(suffixes) do
 local p = root .. rel
-local f = io.open(p, "\114\098")
-if f then
-f:close()
+if _x21(p) then
 S.emblem_cache[tid] = p
 return p
 end
@@ -371,84 +513,115 @@ local cpk_tag = string.format("\064\102\108\097\103\058\037\048\054\100", tid)
 S.emblem_cache[tid] = cpk_tag
 return cpk_tag
 end
-local function _x2c(tid, rid)
+local function _x34(tid, rid)
 local id = tid or 0
 local r = rid or 0
 local b_id = id % 1024
 local b_r = r % 1024
 if id == 217 or id == 228 or id == 229 or r == 217 or r == 228 or r == 229 then
-return _x1a.paulistao
+return _x1e.paulistao
 end
-if id == 29 or id == 2077 or r == 29 then return _x1a.br_a end
-if id == 163 or id == 68 or r == 68 then return _x1a.br_b end
-if id == 67 or id == 54 or id == 199 or id == 1223 or id == 2247 or r == 67 or r == 199 then return _x1a.br_c end
-if id == 120 or id == 165 or (id >= 1144 and id <= 16504 and b_id == 120) or b_r == 120 then return _x1a.br_d end
-if id == 31 or id == 1055 or r == 31 then return _x1a.cdb end
-if id == 164 or id == 238 or (id >= 1188 and id <= 4260 and b_id == 164) or b_r == 164 then return _x1a.ne end
-if id == 127 or id == 239 or b_r == 127 then return _x1a.cverde end
-if id == 132 or r == 132 then return _x1a.supercopa end
-if id == 34 or id == 35 or id == 64 or b_id == 34 or b_r == 34 then return _x1a.wc end
-if id == 1 or id == 47 or id == 48 or id == 145 or id == 146 or b_id == 145 or b_id == 47 or b_r == 145 or b_r == 47 then return _x1a.cwc end
-if id == 41 or id == 42 or b_id == 41 or b_r == 41 then return _x1a.euro end
-if id == 43 or id == 104 or b_id == 104 or b_r == 104 or r == 43 then return _x1a.ca end
-local est_id = _x1b[id] and id or (_x1b[r] and r or nil)
+if id == 29 or id == 2077 or r == 29 then return _x1e.br_a end
+if id == 163 or id == 68 or r == 68 then return _x1e.br_b end
+if id == 67 or id == 54 or id == 199 or id == 1223 or id == 2247 or r == 67 or r == 199 then return _x1e.br_c end
+if id == 120 or id == 165 or (id >= 1144 and id <= 16504 and b_id == 120) or b_r == 120 then return _x1e.br_d end
+if id == 31 or id == 1055 or r == 31 then return _x1e.cdb end
+if id == 164 or id == 238 or (id >= 1188 and id <= 4260 and b_id == 164) or b_r == 164 then return _x1e.ne end
+if id == 127 or id == 239 or b_r == 127 then return _x1e.cverde end
+if id == 132 or r == 132 then return _x1e.supercopa end
+if id == 34 or id == 35 or id == 64 or b_id == 34 or b_r == 34 then return _x1e.wc end
+if id == 1 or id == 47 or id == 48 or id == 145 or id == 146 or b_id == 145 or b_id == 47 or b_r == 145 or b_r == 47 then return _x1e.cwc end
+if id == 41 or id == 42 or b_id == 41 or b_r == 41 then return _x1e.euro end
+if id == 43 or id == 104 or b_id == 104 or b_r == 104 or r == 43 then return _x1e.ca end
+local est_id = _x1f[id] and id or (_x1f[r] and r or nil)
 if est_id then
 return {
-title = _x1b[est_id],
-bg_top = _x1a.est.bg_top, bg_bot = _x1a.est.bg_bot, hdr = _x1a.est.hdr,
-accent = _x1a.est.accent, hi = _x1a.est.hi, gif = _x1a.est.gif, logo_id = est_id
+title = _x1f[est_id],
+bg_top = _x1e.est.bg_top, bg_bot = _x1e.est.bg_bot, hdr = _x1e.est.hdr,
+accent = _x1e.est.accent, hi = _x1e.est.hi, gif = _x1e.est.gif, logo_id = est_id
 }
 end
 if (id >= 201 and id <= 235) or (r >= 201 and r <= 235) then
 local lid = (id >= 201 and id <= 235) and id or r
 return {
 title = "\069\083\084\065\068\085\065\076",
-bg_top = _x1a.est.bg_top, bg_bot = _x1a.est.bg_bot, hdr = _x1a.est.hdr,
-accent = _x1a.est.accent, hi = _x1a.est.hi, gif = _x1a.est.gif, logo_id = lid
+bg_top = _x1e.est.bg_top, bg_bot = _x1e.est.bg_bot, hdr = _x1e.est.hdr,
+accent = _x1e.est.accent, hi = _x1e.est.hi, gif = _x1e.est.gif, logo_id = lid
 }
 end
-if id == 8 or id == 9 or id == 10 or b_id == 8 or b_id == 9 or b_r == 8 or b_r == 9 or r == 10 then return _x1a.lib end
-if id == 15 or id == 16 or b_id == 15 or b_r == 15 or r == 16 then return _x1a.suda end
-if id == 97 or r == 97 then return _x1a.recopa end
-if id == 30 or r == 30 then return _x1a.arg_lpf end
-if id == 59 or id == 92 or r == 59 or r == 92 then return _x1a.arg_cup end
-if id == 2 or id == 3 or id == 4 or b_id == 2 or b_id == 3 or b_r == 2 or b_r == 3 or r == 4 then return _x1a.ucl end
-if id == 5 or id == 6 or b_id == 5 or b_r == 5 or r == 6 then return _x1a.uel end
-if id == 7 or r == 7 then return _x1a.usc end
-if id == 17 or id == 86 or r == 17 then return _x1a.epl end
-if id == 79 or id == 83 or r == 79 or r == 83 then return _x1a.efl end
-if id == 23 or r == 23 then return _x1a.facup end
-if id == 19 or id == 87 or r == 19 then return _x1a.laliga end
-if id == 80 or id == 84 or r == 80 or r == 84 then return _x1a.laliga2 end
-if id == 25 or r == 25 then return _x1a.coparey end
-if id == 18 or id == 89 or r == 18 then return _x1a.seriea end
-if id == 82 or id == 85 or r == 82 or r == 85 then return _x1a.serieb_it end
-if id == 24 or r == 24 then return _x1a.coppait end
-if id == 50 or id == 95 or r == 50 then return _x1a.bundes end
-if id == 53 or r == 53 then return _x1a.dfb end
-if id == 20 or id == 88 or r == 20 then return _x1a.ligue1 end
-if id == 81 or r == 81 then return _x1a.ligue2 end
-if id == 26 or r == 26 then return _x1a.coupefr end
-if id == 21 or id == 90 or r == 21 then return _x1a.erediv end
-if id == 27 or r == 27 then return _x1a.knvb end
-if id == 22 or id == 91 or r == 22 then return _x1a.portugal end
-if id == 28 or r == 28 then return _x1a.tacapt end
-if id == 55 or b_id == 55 or b_r == 55 then return _x1a.afc end
-return _x1a.def
+if id == 8 or id == 9 or id == 10 or b_id == 8 or b_id == 9 or b_r == 8 or b_r == 9 or r == 10 then return _x1e.lib end
+if id == 15 or id == 16 or b_id == 15 or b_r == 15 or r == 16 then return _x1e.suda end
+if id == 97 or r == 97 then return _x1e.recopa end
+if id == 30 or r == 30 then return _x1e.arg_lpf end
+if id == 59 or id == 92 or r == 59 or r == 92 then return _x1e.arg_cup end
+if id == 2 or id == 3 or id == 4 or b_id == 2 or b_id == 3 or b_r == 2 or b_r == 3 or r == 4 then return _x1e.ucl end
+if id == 5 or id == 6 or b_id == 5 or b_r == 5 or r == 6 then return _x1e.uel end
+if id == 7 or r == 7 then return _x1e.usc end
+if id == 17 or id == 86 or r == 17 then return _x1e.epl end
+if id == 79 or id == 83 or r == 79 or r == 83 then return _x1e.efl end
+if id == 23 or r == 23 then return _x1e.facup end
+if id == 19 or id == 87 or r == 19 then return _x1e.laliga end
+if id == 80 or id == 84 or r == 80 or r == 84 then return _x1e.laliga2 end
+if id == 25 or r == 25 then return _x1e.coparey end
+if id == 18 or id == 89 or r == 18 then return _x1e.seriea end
+if id == 82 or id == 85 or r == 82 or r == 85 then return _x1e.serieb_it end
+if id == 24 or r == 24 then return _x1e.coppait end
+if id == 50 or id == 95 or r == 50 then return _x1e.bundes end
+if id == 53 or r == 53 then return _x1e.dfb end
+if id == 20 or id == 88 or r == 20 then return _x1e.ligue1 end
+if id == 81 or r == 81 then return _x1e.ligue2 end
+if id == 26 or r == 26 then return _x1e.coupefr end
+if id == 21 or id == 90 or r == 21 then return _x1e.erediv end
+if id == 27 or r == 27 then return _x1e.knvb end
+if id == 22 or id == 91 or r == 22 then return _x1e.portugal end
+if id == 28 or r == 28 then return _x1e.tacapt end
+if id == 55 or b_id == 55 or b_r == 55 then return _x1e.afc end
+return _x1e.def
 end
-local function _x2d(th)
+local function _x35(th)
 if not th then return "" end
 if S.lang == 1 and th.title_en then return th.title_en end
 if S.lang == 2 and th.title_es then return th.title_es end
 return th.title or ""
 end
-local function _x2e(th)
+local function _x36(th)
 S.current_theme = th
 if S.dll and S.dll_installed then
-S.dll.set_theme(_x2d(th), th.bg_top, th.bg_bot, th.hdr, th.accent, th.hi)
+local ct = S.custom_theme
+local bg_top = (ct and ct.bg_top) or th.bg_top
+local bg_bot = (ct and ct.bg_bot) or th.bg_bot
+local hdr    = (ct and ct.hdr)    or th.hdr
+local accent = (ct and ct.accent) or th.accent
+local hi     = (ct and ct.hi)     or th.hi
+S.dll.set_theme(_x35(th), bg_top, bg_bot, hdr, accent, hi)
 if S.dll.set_comp_assets then
-local logo_path = _x2b(th.logo_id or S.current_tid or S.current_rid)
+local logo_path = _x33(th.logo_id or S.current_tid or S.current_rid)
 S.dll.set_comp_assets(logo_path, th.gif or 0)
+end
+if S.dll.set_style then
+local fam = (ct and ct.font_family ~= "" and ct.font_family) or (S.font_family ~= "" and S.font_family) or "\083\101\103\111\101\032\085\073"
+local ffile = (ct and ct.font_file ~= "" and ct.font_file) or (S.font_file ~= "" and S.font_file) or ""
+S.dll.set_style(
+fam, ffile,
+(ct and ct.text_main) or 0xFFFFFFFF,
+(ct and ct.text_muted) or 0xFFB8C4D8,
+(ct and ct.border_color) or 0xCCFFFFFF,
+(ct and ct.corner_radius) or 8.0,
+(ct and ct.border_width) or 1.6,
+(ct and ct.opacity) or 1.0
+)
+end
+if S.dll.set_anim then
+local am = (ct and ct.anim_mode ~= nil) and ct.anim_mode or (S.anim_mode or 0)
+local adur = (ct and ct.anim_duration) or 0.78
+local bpri = (ct and ct.ball_primary) or 0xFFF8FAFC
+local bsec = (ct and ct.ball_secondary) or 0xFF111827
+local bacc = (ct and ct.ball_accent and ct.ball_accent ~= 0) and ct.ball_accent or accent
+local bsp  = (ct and ct.ball_spins) or 2.2
+S.dll.set_anim(am, adur, bpri, bsec, bacc, bsp)
+end
+if S.dll.set_status_meta then
+S.dll.set_status_meta(S.theme_name or "\097\117\116\111", S.round_scope or 0)
 end
 end
 end
@@ -457,7 +630,7 @@ if not nm then return "" end
 local s = nm:gsub("\037\115\042\037\040\037\115\042\037\117\037\117\037\115\042\037\041\037\115\042\036", ""):gsub("\094\037\040\037\115\042\037\117\037\117\037\117\037\115\042\037\041\037\115\042", "")
 return s ~= "" and s or nm
 end
-local function _x2f()
+local function _x37()
 local is_fl = (ffi.C._x01("\070\076\095\050\048\050\055\046\101\120\101") ~= nil)
 or (ffi.C._x01("\070\076\095\050\048\050\054\046\101\120\101") ~= nil)
 or (ffi.C._x01("\070\076\095\050\048\050\053\046\101\120\101") ~= nil)
@@ -520,7 +693,7 @@ end
 end
 tf:close()
 if loaded > 0 then
-_x1e("\067\097\114\114\101\103\097\100\111\115\032\037\100\032\110\111\109\101\115\032\100\101\032\099\108\117\098\101\115\032\100\101\032\037\115", loaded, txt_path)
+_x23("\067\097\114\114\101\103\097\100\111\115\032\037\100\032\110\111\109\101\115\032\100\101\032\099\108\117\098\101\115\032\100\101\032\037\115", loaded, txt_path)
 break
 end
 end
@@ -531,13 +704,13 @@ local f = io.open(path, "\114\098")
 if f then
 local data = f:read("\042\097")
 f:close()
-if data and #data >= _x12 and data:sub(4, 8) ~= "\087\069\083\089\083" then
-local count = math.floor(#data / _x12)
+if data and #data >= _x16 and data:sub(4, 8) ~= "\087\069\083\089\083" then
+local count = math.floor(#data / _x16)
 for i = 0, count - 1 do
-local off = i * _x12 + 1
-local tid = _x20(data, off + _x13)
+local off = i * _x16 + 1
+local tid = _x25(data, off + _x17)
 if tid > 0 and tid < 262144 and not S.team_names[tid] then
-local raw = data:sub(off + _x14, off + _x14 + 63)
+local raw = data:sub(off + _x18, off + _x18 + 63)
 local nm = raw:match("\094\040\091\094\037\122\093\043\041")
 if nm and nm ~= "" then
 S.team_names[tid] = clean_team_display_name(nm)
@@ -571,15 +744,15 @@ end
 end
 mf:close()
 if added > 0 then
-_x1e("\067\097\114\114\101\103\097\100\111\115\032\037\100\032\110\111\109\101\115\032\101\120\116\114\097\115\032\100\101\032\037\115", added, mp)
+_x23("\067\097\114\114\101\103\097\100\111\115\032\037\100\032\110\111\109\101\115\032\101\120\116\114\097\115\032\100\101\032\037\115", added, mp)
 end
 end
 end
 end
-local function _x30(st)
+local function _x38(st)
 if not st or not S.L then return end
-local nt_b = _x23(st + S.L.nteams, 4)
-local nt = nt_b and _x20(nt_b, 1) or 0
+local nt_b = _x28(st + S.L.nteams, 4)
+local nt = nt_b and _x25(nt_b, 1) or 0
 if nt <= 0 then return end
 local max_scan = math.min(nt, math.max(S.L.maxteams or 2400, 3200))
 local TEAM_REC_SIZE = 0x690
@@ -587,13 +760,13 @@ local CHUNK_TEAMS = 300
 local ram_added = 0
 for start_idx = 0, max_scan - 1, CHUNK_TEAMS do
 local n_read = math.min(CHUNK_TEAMS, max_scan - start_idx)
-local chunk = _x23(st + S.L.teams + start_idx * TEAM_REC_SIZE, n_read * TEAM_REC_SIZE)
+local chunk = _x28(st + S.L.teams + start_idx * TEAM_REC_SIZE, n_read * TEAM_REC_SIZE)
 if not chunk then break end
 local count = math.floor(#chunk / TEAM_REC_SIZE)
 for i = 0, count - 1 do
 local base_off = i * TEAM_REC_SIZE + 1
-local raw_id = _x20(chunk, base_off + 8)
-local tid = _x25(raw_id) or (raw_id > 0 and raw_id < 262144 and raw_id or nil)
+local raw_id = _x25(chunk, base_off + 8)
+local tid = _x2a(raw_id) or (raw_id > 0 and raw_id < 262144 and raw_id or nil)
 if tid then
 local raw_nm = chunk:sub(base_off + 0x13c, base_off + 0x13c + 69)
 local nm = raw_nm:match("\094\040\091\094\037\122\093\043\041")
@@ -608,45 +781,45 @@ end
 end
 end
 if ram_added > 0 then
-_x1e("\078\111\109\101\115\032\101\120\116\114\097\115\032\114\101\115\111\108\118\105\100\111\115\032\100\097\032\082\065\077\032\100\097\032\099\097\114\114\101\105\114\097\032\040\037\100\047\037\100\032\115\108\111\116\115\041\058\032\043\037\100\032\099\108\117\098\101\115", max_scan, nt, ram_added)
+_x23("\078\111\109\101\115\032\101\120\116\114\097\115\032\114\101\115\111\108\118\105\100\111\115\032\100\097\032\082\065\077\032\100\097\032\099\097\114\114\101\105\114\097\032\040\037\100\047\037\100\032\115\108\111\116\115\041\058\032\043\037\100\032\099\108\117\098\101\115", max_scan, nt, ram_added)
 end
 end
-local function _x31(tid)
+local function _x39(tid)
 return S.team_names[tid] or ("\084\105\109\101\032" .. tostring(tid))
 end
-local function _x32()
+local function _x3a()
 if not S.build or S.base == 0 then return nil end
 local site = S.base + S.build.getter
-local ins = _x23(site, 7)
+local ins = _x28(site, 7)
 if not ins then return nil end
-local disp = _x21(ins, 4)
+local disp = _x26(ins, 4)
 local global_ptr = site + 7 + disp
-local owner = _x24(global_ptr)
+local owner = _x29(global_ptr)
 if not owner then return nil end
-return _x24(owner + 0x48)
+return _x29(owner + 0x48)
 end
 local function read_ball_screen_uv()
 if not S.build or S.base == 0 then return nil, nil end
-local gmc = _x24(S.base + S.build.gmc)
+local gmc = _x29(S.base + S.build.gmc)
 if not gmc then return nil, nil end
-local ball_ptr = _x24(gmc + 0x40)
+local ball_ptr = _x29(gmc + 0x40)
 if not ball_ptr then return nil, nil end
-local slot_s = _x23(ball_ptr + 0x290C, 8)
+local slot_s = _x28(ball_ptr + 0x290C, 8)
 if slot_s then
-local h_slot = _x20(slot_s, 1)
-local t_slot = _x20(slot_s, 5)
+local h_slot = _x25(slot_s, 1)
+local t_slot = _x25(slot_s, 5)
 if h_slot <= 21 then S.last_active_slot = h_slot
 elseif t_slot <= 21 then S.last_active_slot = t_slot end
 end
 local wx, wy, wz
 if S.last_active_slot and S.last_active_slot <= 21 then
-local pl = _x24(S.base + S.build.players + 8 * S.last_active_slot)
-local ac = pl and _x24(pl + 0x7E8)
-local hum = ac and _x24(ac + 8)
-local arr = hum and _x24(hum + 0x10)
-local cp = arr and _x24(arr + 8 * 6)
+local pl = _x29(S.base + S.build.players + 8 * S.last_active_slot)
+local ac = pl and _x29(pl + 0x7E8)
+local hum = ac and _x29(ac + 8)
+local arr = hum and _x29(hum + 0x10)
+local cp = arr and _x29(arr + 8 * 6)
 if cp then
-local c_s = _x23(cp + 0x3C, 12)
+local c_s = _x28(cp + 0x3C, 12)
 if c_s then
 local px = memory.unpack("\102", c_s:sub(1, 4))
 local py = memory.unpack("\102", c_s:sub(5, 8))
@@ -658,7 +831,7 @@ end
 end
 end
 if not wx then
-local b_s = _x23(ball_ptr + 0x2954, 12)
+local b_s = _x28(ball_ptr + 0x2954, 12)
 if b_s then
 local bx = memory.unpack("\102", b_s:sub(1, 4))
 local by = memory.unpack("\102", b_s:sub(5, 8))
@@ -670,11 +843,11 @@ end
 end
 if not wx then return nil, nil end
 local view_site = S.base + S.build.view_rva
-local hook_hdr = _x23(view_site, 14)
+local hook_hdr = _x28(view_site, 14)
 if hook_hdr and hook_hdr:sub(1, 6) == "\255\037\000\000\000\000" then
-local cam_cave = _x22(hook_hdr, 7)
+local cam_cave = _x27(hook_hdr, 7)
 local cam_data = cam_cave + 0x100
-local cam_s = _x23(cam_data + 0x40, 0x28)
+local cam_s = _x28(cam_data + 0x40, 0x28)
 if cam_s then
 local ex = memory.unpack("\102", cam_s:sub(1, 4))
 local ey = memory.unpack("\102", cam_s:sub(5, 8))
@@ -714,7 +887,7 @@ end
 end
 return nil, nil
 end
-local function _x33()
+local function _x3b()
 if not S.dll or not S.dll_installed or not S.dll.set_occlusion then return end
 if not S.auto_fade or not S.in_match then
 S.ball_in_corner = false
@@ -764,26 +937,26 @@ S.ball_in_corner = false
 end
 S.dll.set_occlusion(S.ball_in_corner and S.fade_alpha or 1.0)
 end
-local function _x34()
+local function _x3c()
 if not S.build or S.base == 0 then return end
-local owner = _x24(S.base + S.build.owner)
-local blk = owner and _x24(owner + 0x48) or _x32()
+local owner = _x29(S.base + S.build.owner)
+local blk = owner and _x29(owner + 0x48) or _x3a()
 if not blk then return end
 local squads = {}
 local CHUNK_PLAYERS = 2000
-local chunk_bytes = CHUNK_PLAYERS * _x0d
+local chunk_bytes = CHUNK_PLAYERS * _x11
 local done = false
-for base_idx = 0, _x0e - 1, CHUNK_PLAYERS do
-local chunk = _x23(blk + base_idx * _x0d, chunk_bytes)
+for base_idx = 0, _x12 - 1, CHUNK_PLAYERS do
+local chunk = _x28(blk + base_idx * _x11, chunk_bytes)
 if not chunk then break end
 for j = 0, CHUNK_PLAYERS - 1 do
-local base_off = j * _x0d + 1
-local pid = _x20(chunk, base_off + _x0f)
+local base_off = j * _x11 + 1
+local pid = _x25(chunk, base_off + _x13)
 if pid == 0 then done = true; break end
-local club_raw = _x20(chunk, base_off + _x11)
-local tid = _x25(club_raw)
+local club_raw = _x25(chunk, base_off + _x15)
+local tid = _x2a(club_raw)
 if tid then
-local raw_nm = chunk:sub(base_off + _x10, base_off + _x10 + 47)
+local raw_nm = chunk:sub(base_off + _x14, base_off + _x14 + 47)
 local nm = raw_nm:match("\094\040\091\094\037\122\093\043\041")
 if nm and nm ~= "" then
 local list = squads[tid]
@@ -797,7 +970,7 @@ end
 S.squads = squads
 S.squads_loaded = true
 end
-local function _x35(tid)
+local function _x3d(tid)
 local list = S.squads[tid]
 if not list or #list == 0 then
 local num = tostring(math.random(7, 11))
@@ -819,7 +992,7 @@ return list[math.random(2, n)]
 end
 return list[math.random(1, n)]
 end
-local function _x36()
+local function _x3e()
 if S.sound_volume <= 0.005 then return end
 if audio and S.sound_path ~= "" then
 local snd = audio.new(S.sound_path)
@@ -829,7 +1002,7 @@ snd:play()
 end
 end
 end
-local function _x37(tbl)
+local function _x3f(tbl)
 local list = {}
 for tid, r in pairs(tbl) do
 list[#list + 1] = { id = tid, pts = r.pts, vit = r.vit, sg = r.sg, gp = r.gp }
@@ -847,7 +1020,7 @@ pos_map[item.id] = idx
 end
 return pos_map
 end
-local function _x38(tbl, h, a, gh, ga)
+local function _x40(tbl, h, a, gh, ga)
 if not h or not a or not tbl[h] or not tbl[a] then return end
 local rh, ra = tbl[h], tbl[a]
 rh.gp = rh.gp + gh
@@ -865,7 +1038,7 @@ rh.pts = rh.pts + 1
 ra.pts = ra.pts + 1
 end
 end
-local function _x39(user_hs, user_as, use_final)
+local function _x41(user_hs, user_as, use_final)
 if not S.is_league_table then return nil end
 local has_groups = false
 for _ in pairs(S.group_tables) do has_groups = true; break end
@@ -875,16 +1048,16 @@ for tid, r in pairs(S.base_table) do
 live_tbl[tid] = { pts = r.pts, vit = r.vit, sg = r.sg, gp = r.gp }
 end
 if S.home_id > 0 and S.away_id > 0 and live_tbl[S.home_id] and live_tbl[S.away_id] then
-_x38(live_tbl, S.home_id, S.away_id, user_hs or 0, user_as or 0)
+_x40(live_tbl, S.home_id, S.away_id, user_hs or 0, user_as or 0)
 end
 for _, sm in ipairs(S.sim_matches) do
 if live_tbl[sm.h] and live_tbl[sm.a] then
 local hs = use_final and (sm.final_hs or 0) or (sm.hs or 0)
 local as = use_final and (sm.final_as or 0) or (sm.as or 0)
-_x38(live_tbl, sm.h, sm.a, hs, as)
+_x40(live_tbl, sm.h, sm.a, hs, as)
 end
 end
-return _x37(live_tbl)
+return _x3f(live_tbl)
 end
 local combined_pos = {}
 for rid, gtbl in pairs(S.group_tables) do
@@ -893,27 +1066,27 @@ for tid, r in pairs(gtbl) do
 live_tbl[tid] = { pts = r.pts, vit = r.vit, sg = r.sg, gp = r.gp }
 end
 if S.home_id > 0 and S.away_id > 0 and live_tbl[S.home_id] and live_tbl[S.away_id] then
-_x38(live_tbl, S.home_id, S.away_id, user_hs or 0, user_as or 0)
+_x40(live_tbl, S.home_id, S.away_id, user_hs or 0, user_as or 0)
 end
 for _, sm in ipairs(S.sim_matches) do
 if live_tbl[sm.h] and live_tbl[sm.a] then
 local hs = use_final and (sm.final_hs or 0) or (sm.hs or 0)
 local as = use_final and (sm.final_as or 0) or (sm.as or 0)
-_x38(live_tbl, sm.h, sm.a, hs, as)
+_x40(live_tbl, sm.h, sm.a, hs, as)
 end
 end
-local gpos = _x37(live_tbl)
+local gpos = _x3f(live_tbl)
 for tid, p in pairs(gpos) do
 combined_pos[tid] = p
 end
 end
 return combined_pos
 end
-local function _x3a(h_id, a_id, user_hs, user_as, use_final)
+local function _x42(h_id, a_id, user_hs, user_as, use_final)
 if not S.is_league_table or not S.base_pos[h_id] or not S.base_pos[a_id] then
 return 0, 0, 0, 0
 end
-local live_pos = _x39(user_hs, user_as, use_final)
+local live_pos = _x41(user_hs, user_as, use_final)
 if not live_pos then return 0, 0, 0, 0 end
 local hp = live_pos[h_id] or 0
 local ap = live_pos[a_id] or 0
@@ -921,7 +1094,7 @@ local hd = (hp > 0 and S.base_pos[h_id]) and (S.base_pos[h_id] - hp) or 0
 local ad = (ap > 0 and S.base_pos[a_id]) and (S.base_pos[a_id] - ap) or 0
 return hp, ap, hd, ad
 end
-local function _x3b(menu_mode)
+local function _x43(menu_mode)
 if not S.dll or not S.dll_installed or not S.dll.set_round_match or not S.dll.clear_round_matches then return end
 S.dll.clear_round_matches()
 if S.home_id <= 0 or S.away_id <= 0 then return end
@@ -940,7 +1113,7 @@ end
 end
 end
 end
-local live_pos = _x39(S.last_user_hs, S.last_user_as, is_fulltime)
+local live_pos = _x41(S.last_user_hs, S.last_user_as, is_fulltime)
 local function get_pd(tid)
 if not S.is_league_table or not live_pos or not S.base_pos[tid] then return 0, 0 end
 local p = live_pos[tid] or 0
@@ -965,8 +1138,8 @@ local uhp, uhd = get_pd(S.home_id)
 local uap, uad = get_pd(S.away_id)
 S.dll.set_round_match(
 0,
-_x31(S.home_id), _x31(S.away_id),
-_x2a(S.home_id), _x2a(S.away_id),
+_x39(S.home_id), _x39(S.away_id),
+_x32(S.home_id), _x32(S.away_id),
 "", "",
 user_status,
 S.last_user_hs, S.last_user_as,
@@ -1041,8 +1214,8 @@ local hp, hd = get_pd(sm.h)
 local ap, ad = get_pd(sm.a)
 S.dll.set_round_match(
 panel_slot,
-_x31(sm.h), _x31(sm.a),
-_x2a(sm.h), _x2a(sm.a),
+_x39(sm.h), _x39(sm.a),
+_x32(sm.h), _x32(sm.a),
 h_scorers, a_scorers,
 st_str,
 hs, as,
@@ -1051,22 +1224,40 @@ hp, ap, hd, ad,
 )
 end
 end
+for _, fm in ipairs(S.finished_matches or {}) do
+if panel_slot < 19 then
+panel_slot = panel_slot + 1
+local f_st = (S.lang == 1) and "\070\085\076\076\032\084\073\077\069" or ((S.lang == 2) and "\070\073\078\065\076" or "\069\078\067\069\082\082\065\068\079")
+local hp, hd = get_pd(fm.h)
+local ap, ad = get_pd(fm.a)
+S.dll.set_round_match(
+panel_slot,
+_x39(fm.h), _x39(fm.a),
+_x32(fm.h), _x32(fm.a),
+"", "",
+f_st,
+fm.final_hs or 0, fm.final_as or 0,
+hp, ap, hd, ad,
+0
+)
 end
-local function _x3c(mode, title, auto_open_tab)
+end
+end
+local function _x44(mode, title, auto_open_tab)
 S.menu_mode = mode
 S.phase_title = title or ""
 if not S.dll or not S.dll_installed or not S.dll.set_round_menu_state then return end
 if mode > 0 then
-_x3b(mode)
+_x43(mode)
 end
 S.dll.set_round_menu_state(mode, S.phase_title, auto_open_tab or 0)
 end
-local function _x3d(comp_name, h_id, a_id, h_score, a_score, side, scorer, minute, h_pos, a_pos, h_delta, a_delta)
+local function _x45(comp_name, h_id, a_id, h_score, a_score, side, scorer, minute, h_pos, a_pos, h_delta, a_delta)
 if not S.dll or not S.dll_installed then return end
-local h_name = _x31(h_id)
-local a_name = _x31(a_id)
-local h_emb = _x2a(h_id)
-local a_emb = _x2a(a_id)
+local h_name = _x39(h_id)
+local a_name = _x39(a_id)
+local h_emb = _x32(h_id)
+local a_emb = _x32(a_id)
 local min_str = string.format("\037\100\039", minute)
 if S.dll.push_goal_ex then
 S.dll.push_goal_ex(comp_name, h_name, a_name, scorer, min_str, h_emb, a_emb,
@@ -1075,10 +1266,10 @@ else
 S.dll.push_goal(comp_name, h_name, a_name, scorer, min_str, h_emb, a_emb, h_score, a_score, side, S.duration)
 end
 end
-local function _x3e(v)
+local function _x46(v)
 return string.char(v % 256, math.floor(v / 256) % 256)
 end
-local function _x3f(v)
+local function _x47(v)
 return string.char(
 v % 256,
 math.floor(v / 256) % 256,
@@ -1086,34 +1277,35 @@ math.floor(v / 65536) % 256,
 math.floor(v / 16777216) % 256
 )
 end
-local function _x40(v)
+local function _x48(v)
 local lo = v % 4294967296
 local hi = math.floor(v / 4294967296)
-return _x3f(lo) .. _x3f(hi)
+return _x47(lo) .. _x47(hi)
 end
-local function _x41()
+local function _x49()
 if S.sim_hooked then return true end
-if S.base == 0 then return false end
-local site = S.base + _x15
-if memory.read(site - #_x16, #_x16) ~= _x16 then
-local found = memory.search_process(_x16 .. _x17)
+if S.base == 0 or not S.build then return false end
+local site = S.base + _x19
+if _x28(site - #_x1a, #_x1a) ~= _x1a then
+local found = memory.search_process(_x1a .. _x1b)
 if not found then
-_x1e("\065\115\115\105\110\097\116\117\114\097\032\100\101\032\115\105\109\117\108\097\099\097\111\032\100\097\032\073\065\032\110\097\111\032\101\110\099\111\110\116\114\097\100\097\032\110\111\032\069\088\069")
+_x23("\065\115\115\105\110\097\116\117\114\097\032\100\101\032\115\105\109\117\108\097\099\097\111\032\100\097\032\073\065\032\110\097\111\032\101\110\099\111\110\116\114\097\100\097\032\110\111\032\069\088\069")
 return false
 end
-site = tonumber(ffi.cast("\117\105\110\116\112\116\114\095\116", found)) + #_x16
+site = tonumber(ffi.cast("\117\105\110\116\112\116\114\095\116", found)) + #_x1a
 end
-local cur = memory.read(site, 15)
+local cur = _x28(site, 15)
+if not cur then return false end
 if cur:sub(1, 6) == "\255\037\000\000\000\000" then
-local cave = _x22(cur, 7)
+local cave = _x27(cur, 7)
 S.sim_cave = cave
 S.sim_data = cave + 0x80
 S.sim_hooked = true
-_x1e("\072\111\111\107\032\100\101\032\115\105\110\099\114\111\110\105\122\097\099\097\111\032\100\097\032\073\065\032\114\101\117\116\105\108\105\122\097\100\111\032\101\109\032\037\120\032\040\099\097\118\101\032\037\120\041", site, cave)
+_x23("\072\111\111\107\032\100\101\032\115\105\110\099\114\111\110\105\122\097\099\097\111\032\100\097\032\073\065\032\114\101\117\116\105\108\105\122\097\100\111\032\101\109\032\037\120\032\040\099\097\118\101\032\037\120\041", site, cave)
 return true
 end
-if cur ~= _x17 then
-_x1e("\066\121\116\101\115\032\105\110\101\115\112\101\114\097\100\111\115\032\101\109\032\037\120\059\032\104\111\111\107\032\100\101\032\115\105\110\099\114\111\110\105\122\097\099\097\111\032\110\097\111\032\105\110\115\116\097\108\097\100\111", site)
+if cur ~= _x1b then
+_x23("\066\121\116\101\115\032\105\110\101\115\112\101\114\097\100\111\115\032\101\109\032\037\120\059\032\104\111\111\107\032\100\101\032\115\105\110\099\114\111\110\105\122\097\099\097\111\032\110\097\111\032\105\110\115\116\097\108\097\100\111", site)
 return false
 end
 local cave = tonumber(ffi.cast("\117\105\110\116\112\116\114\095\116", memory.allocate_codecave(0x200)))
@@ -1121,7 +1313,7 @@ local data = cave + 0x80
 memory.write(data, string.rep("\000", 0x90))
 local code =
 "\080\081\082" ..
-"\072\184" .. _x40(data) ..
+"\072\184" .. _x48(data) ..
 "\139\008" ..
 "\133\201" ..
 "\116\039" ..
@@ -1139,17 +1331,17 @@ local code =
 "\255\201" ..
 "\117\224" ..
 "\090\089\088" ..
-_x17 ..
-"\255\037\000\000\000\000" .. _x40(site + 15)
+_x1b ..
+"\255\037\000\000\000\000" .. _x48(site + 15)
 memory.write(cave, code)
-memory.write(site, "\255\037\000\000\000\000" .. _x40(cave) .. "\144")
+memory.write(site, "\255\037\000\000\000\000" .. _x48(cave) .. "\144")
 S.sim_cave = cave
 S.sim_data = data
 S.sim_hooked = true
-_x1e("\072\111\111\107\032\100\101\032\115\105\110\099\114\111\110\105\122\097\099\097\111\032\100\097\032\073\065\032\105\110\115\116\097\108\097\100\111\032\101\109\032\037\120\032\045\062\032\099\097\118\101\032\037\120", site, cave)
+_x23("\072\111\111\107\032\100\101\032\115\105\110\099\114\111\110\105\122\097\099\097\111\032\100\097\032\073\065\032\105\110\115\116\097\108\097\100\111\032\101\109\032\037\120\032\045\062\032\099\097\118\101\032\037\120", site, cave)
 return true
 end
-local function _x42()
+local function _x4a()
 if not S.sim_hooked or not S.sim_data then return end
 local all_sync = {}
 for _, sm in ipairs(S.sim_matches) do
@@ -1164,21 +1356,21 @@ local n = math.min(#all_sync, 16)
 local entries = {}
 for i = 1, n do
 local sm = all_sync[i]
-entries[i] = _x3e(sm.eid) .. string.char(sm.final_hs % 256, sm.final_as % 256) .. _x3f(0)
+entries[i] = _x46(sm.eid) .. string.char(sm.final_hs % 256, sm.final_as % 256) .. _x47(0)
 end
-memory.write(S.sim_data, _x3f(n) .. _x3f(0) .. table.concat(entries))
+memory.write(S.sim_data, _x47(n) .. _x47(0) .. table.concat(entries))
 end
-local function _x43()
+local function _x4b()
 S.base_pos = {}
 for rid, gtbl in pairs(S.group_tables) do
-local gpos = _x37(gtbl)
+local gpos = _x3f(gtbl)
 for tid, p in pairs(gpos) do
 S.base_pos[tid] = p
 S.base_table[tid] = gtbl[tid]
 end
 end
 end
-local function _x44(st, all_ev, my_rid, user_modo, today_mes, today_dia)
+local function _x4c(st, all_ev, my_rid, user_modo, today_mes, today_dia)
 S.is_league_table = false
 S.base_table = {}
 S.group_tables = {}
@@ -1207,14 +1399,14 @@ if ra < rb then parent[rb] = ra else parent[ra] = rb end
 end
 end
 local comp_events = {}
-for ei = 0, _x0c - 1 do
-local off = ei * _x0b + 1
-if _x1f(all_ev, off) == ei then
-local pk = _x20(all_ev, off + 4)
+for ei = 0, _x10 - 1 do
+local off = ei * _x0f + 1
+if _x24(all_ev, off) == ei then
+local pk = _x25(all_ev, off + 4)
 local rid = pk % 65536
 if rid == my_rid or (base_rid > 0 and (rid % 1024) == base_rid) then
-local h = _x25(_x20(all_ev, off + 20))
-local a = _x25(_x20(all_ev, off + 24))
+local h = _x2a(_x25(all_ev, off + 20))
+local a = _x2a(_x25(all_ev, off + 24))
 if h and a then
 uf_union(h, a)
 local jogada = (math.floor(pk / 1073741824) % 2) == 1
@@ -1244,7 +1436,7 @@ local gtbl = S.group_tables[root]
 if root == my_root then total_my_group_matches = total_my_group_matches + 1 end
 if gtbl and ev.jogada and not (ev.mes == today_mes and ev.dia == today_dia) then
 if ev.gh and ev.ga and ev.gh < 50 and ev.ga < 50 then
-_x38(gtbl, ev.h, ev.a, ev.gh, ev.ga)
+_x40(gtbl, ev.h, ev.a, ev.gh, ev.ga)
 if root == my_root then played_matches = played_matches + 1 end
 end
 end
@@ -1258,18 +1450,18 @@ S.is_multi_group = (num_groups > 1 and num_clubs >= 3 and num_clubs <= 8)
 local min_league_matches = math.floor(num_clubs * (num_clubs - 1) / 2)
 if num_clubs >= 3 and num_clubs <= 28 and total_my_group_matches >= min_league_matches then
 S.is_league_table = true
-_x43()
-_x1d("\091\083\084\065\078\068\073\078\071\083\093\032\084\097\098\101\108\097\032\100\101\032\112\111\110\116\111\115\032\099\111\114\114\105\100\111\115\047\103\114\117\112\111\115\032\097\116\105\118\097\032\112\097\114\097\032\114\105\100\061\037\100\032\040\037\100\032\099\108\117\098\101\115\032\110\111\032\103\114\117\112\111\047\108\105\103\097\044\032\037\100\032\103\114\117\112\111\115\044\032\037\100\032\106\111\103\111\115\032\110\111\032\103\114\117\112\111\044\032\037\100\032\106\097\032\106\111\103\097\100\111\115\041",
+_x4b()
+_x22("\091\083\084\065\078\068\073\078\071\083\093\032\084\097\098\101\108\097\032\100\101\032\112\111\110\116\111\115\032\099\111\114\114\105\100\111\115\047\103\114\117\112\111\115\032\097\116\105\118\097\032\112\097\114\097\032\114\105\100\061\037\100\032\040\037\100\032\099\108\117\098\101\115\032\110\111\032\103\114\117\112\111\047\108\105\103\097\044\032\037\100\032\103\114\117\112\111\115\044\032\037\100\032\106\111\103\111\115\032\110\111\032\103\114\117\112\111\044\032\037\100\032\106\097\032\106\111\103\097\100\111\115\041",
 my_rid, num_clubs, num_groups, total_my_group_matches, played_matches)
 else
 S.group_tables = {}
 S.is_multi_group = false
-_x1d("\091\083\084\065\078\068\073\078\071\083\093\032\070\097\115\101\032\109\097\116\097\045\109\097\116\097\032\100\101\116\101\099\116\097\100\097\032\112\097\114\097\032\114\105\100\061\037\100\032\040\099\108\117\098\101\115\061\037\100\044\032\106\111\103\111\115\061\037\100\041\032\045\032\112\111\115\105\099\097\111\032\111\099\117\108\116\097",
+_x22("\091\083\084\065\078\068\073\078\071\083\093\032\070\097\115\101\032\109\097\116\097\045\109\097\116\097\032\100\101\116\101\099\116\097\100\097\032\112\097\114\097\032\114\105\100\061\037\100\032\040\099\108\117\098\101\115\061\037\100\044\032\106\111\103\111\115\061\037\100\041\032\045\032\112\111\115\105\099\097\111\032\111\099\117\108\116\097",
 my_rid, num_clubs, total_my_group_matches)
 end
 end
-local function _x45(label_tag, my_rid, my_dia, my_mes)
-_x34()
+local function _x4d(label_tag, my_rid, my_dia, my_mes)
+_x3c()
 for idx, sm in ipairs(S.sim_matches) do
 local r = math.random(1, 100)
 local total_goals = 0
@@ -1288,7 +1480,7 @@ S.timeline[#S.timeline + 1] = {
 match_idx = idx,
 minute = min,
 side = side,
-scorer = _x35(tid),
+scorer = _x3d(tid),
 fired = false,
 }
 end
@@ -1300,44 +1492,44 @@ S.timeline[#S.timeline + 1] = {
 match_idx = idx,
 minute = math.random(75, 88),
 side = side,
-scorer = _x35(tid),
+scorer = _x3d(tid),
 fired = false,
 }
 end
-_x1d("\091\083\073\077\095\077\065\084\067\072\032\035\037\100\093\032\101\105\100\061\037\100\032\124\032\037\115\032\040\037\100\044\032\112\111\115\095\105\110\105\061\037\115\041\032\037\100\032\120\032\037\100\032\037\115\032\040\037\100\044\032\112\111\115\095\105\110\105\061\037\115\041\032\124\032\101\109\098\095\104\061\037\115\032\124\032\101\109\098\095\097\061\037\115",
+_x22("\091\083\073\077\095\077\065\084\067\072\032\035\037\100\093\032\101\105\100\061\037\100\032\124\032\037\115\032\040\037\100\044\032\112\111\115\095\105\110\105\061\037\115\041\032\037\100\032\120\032\037\100\032\037\115\032\040\037\100\044\032\112\111\115\095\105\110\105\061\037\115\041\032\124\032\101\109\098\095\104\061\037\115\032\124\032\101\109\098\095\097\061\037\115",
 idx, sm.eid,
-_x31(sm.h), sm.h, tostring(S.base_pos[sm.h] or "\045"),
+_x39(sm.h), sm.h, tostring(S.base_pos[sm.h] or "\045"),
 sm.final_hs, sm.final_as,
-_x31(sm.a), sm.a, tostring(S.base_pos[sm.a] or "\045"),
-_x2a(sm.h) ~= "" and "\079\075" or "\077\073\083\083\073\078\071",
-_x2a(sm.a) ~= "" and "\079\075" or "\077\073\083\083\073\078\071")
+_x39(sm.a), sm.a, tostring(S.base_pos[sm.a] or "\045"),
+_x32(sm.h) ~= "" and "\079\075" or "\077\073\083\083\073\078\071",
+_x32(sm.a) ~= "" and "\079\075" or "\077\073\083\083\073\078\071")
 end
 table.sort(S.timeline, function(x, y) return x.minute < y.minute end)
 for k, g in ipairs(S.timeline) do
 local sm = S.sim_matches[g.match_idx]
-_x1d("\032\032\091\071\079\076\095\065\071\069\078\068\065\068\079\032\035\037\100\093\032\037\100\039\032\045\062\032\037\115\032\120\032\037\115\032\040\108\097\100\111\061\037\115\044\032\097\117\116\111\114\061\037\115\041",
-k, g.minute, _x31(sm.h), _x31(sm.a), g.side == 0 and "\077\065\078\068\065\078\084\069" or "\086\073\083\073\084\065\078\084\069", g.scorer)
+_x22("\032\032\091\071\079\076\095\065\071\069\078\068\065\068\079\032\035\037\100\093\032\037\100\039\032\045\062\032\037\115\032\120\032\037\115\032\040\108\097\100\111\061\037\115\044\032\097\117\116\111\114\061\037\115\041",
+k, g.minute, _x39(sm.h), _x39(sm.a), g.side == 0 and "\077\065\078\068\065\078\084\069" or "\086\073\083\073\084\065\078\084\069", g.scorer)
 end
-_x42()
-_x3b(0)
-_x1d("\091\037\115\093\032\082\111\100\097\100\097\032\112\114\111\110\116\097\032\040\114\105\100\061\037\100\044\032\037\048\050\100\047\037\048\050\100\041\058\032\037\100\032\106\111\103\111\115\032\115\105\109\117\108\116\097\110\101\111\115\044\032\037\100\032\103\111\108\115\032\097\103\101\110\100\097\100\111\115\032\040\099\111\100\101\099\097\118\101\032\048\120\037\120\041",
+_x4a()
+_x43(0)
+_x22("\091\037\115\093\032\082\111\100\097\100\097\032\112\114\111\110\116\097\032\040\114\105\100\061\037\100\044\032\037\048\050\100\047\037\048\050\100\041\058\032\037\100\032\106\111\103\111\115\032\115\105\109\117\108\116\097\110\101\111\115\044\032\037\100\032\103\111\108\115\032\097\103\101\110\100\097\100\111\115\032\040\099\111\100\101\099\097\118\101\032\048\120\037\120\041",
 label_tag, my_rid, my_dia, my_mes, #S.sim_matches, #S.timeline, S.sim_data or 0)
 end
-local function _x46()
+local function _x4e()
 local tid = S.current_tid > 0 and S.current_tid or 29
 S.current_rid = tid
-local th = _x2c(tid, tid)
-if th == _x1a.def then
+local th = _x34(tid, tid)
+if th == _x1e.def then
 if (S.home_id >= 1200 and S.home_id <= 2600) or S.home_id == 137 or S.home_id == 274 then
-th = _x1a.br_a
+th = _x1e.br_a
 else
-th = _x1a.ucl
+th = _x1e.ucl
 end
 end
-_x2e(th)
+_x36(th)
 local pool_br = { 1248, 137, 1255, 1247, 1246, 1254, 1249, 1250, 1252, 274, 1245, 2453, 1256, 1251, 1244, 1253 }
 local pool_eu = { 109, 108, 127, 101, 103, 102, 100, 120, 121, 119, 114, 125, 128, 112 }
-local use_br = (th == _x1a.br_a or th == _x1a.br_b or th == _x1a.br_c or th == _x1a.br_d or th == _x1a.paulistao or th == _x1a.cdb or th == _x1a.lib or th == _x1a.suda)
+local use_br = (th == _x1e.br_a or th == _x1e.br_b or th == _x1e.br_c or th == _x1e.br_d or th == _x1e.paulistao or th == _x1e.cdb or th == _x1e.lib or th == _x1e.suda)
 local src_pool = use_br and pool_br or pool_eu
 local filtered = {}
 local used = {}
@@ -1373,7 +1565,7 @@ local w = math.floor(pts / 3)
 local gd = math.max(-6, 12 - idx)
 S.base_table[cid] = { pts = pts, vit = w, sg = gd, gp = w * 2 + 3 }
 end
-S.base_pos = _x37(S.base_table)
+S.base_pos = _x3f(S.base_table)
 local n_pairs = math.min(5, math.floor(#filtered / 2))
 for i = 1, n_pairs do
 local h = filtered[(i - 1) * 2 + 1]
@@ -1386,10 +1578,10 @@ final_hs = 0, final_as = 0, no_draw = false,
 end
 end
 if #S.sim_matches > 0 then
-_x45("\065\077\073\083\084\079\083\079\095\068\069\077\079", S.current_rid, 1, 1)
+_x4d("\065\077\073\083\084\079\083\079\095\068\069\077\079", S.current_rid, 1, 1)
 end
 end
-local function _x47(no_draw)
+local function _x4f(no_draw)
 local function pick_g()
 local r = math.random(1, 100)
 if r <= 32 then return 0
@@ -1403,58 +1595,61 @@ if math.random(1, 100) <= 55 then hs = hs + 1 else as = as + 1 end
 end
 return hs, as
 end
-local function _x48(st)
+local function _x50(st)
 S.sim_matches = {}
 S.earlier_matches = {}
+S.finished_matches = {}
 S.timeline = {}
 S.sync_logged = {}
 if S.sim_hooked and S.sim_data then
-memory.write(S.sim_data, _x3f(0))
+memory.write(S.sim_data, _x47(0))
 end
 if not st or not S.L then
-_x1d("\091\083\067\065\078\093\032\115\116\032\105\110\100\105\115\112\111\110\105\118\101\108\032\040\115\116\061\037\115\041\032\045\062\032\097\116\105\118\097\110\100\111\032\114\111\100\097\100\097\032\115\105\109\117\108\097\100\097\032\112\097\114\097\032\065\109\105\115\116\111\115\111\047\069\120\105\098\105\099\097\111", tostring(st))
-_x46()
+_x22("\091\083\067\065\078\093\032\115\116\032\105\110\100\105\115\112\111\110\105\118\101\108\032\040\115\116\061\037\115\041\032\045\062\032\097\116\105\118\097\110\100\111\032\114\111\100\097\100\097\032\115\105\109\117\108\097\100\097\032\112\097\114\097\032\065\109\105\115\116\111\115\111\047\069\120\105\098\105\099\097\111", tostring(st))
+_x4e()
 return
 end
-_x30(st)
+_x38(st)
 local cur_ano, cur_mes, cur_dia = 0, 0, 0
-local dbytes = _x23(st + S.L.date + 8, 4)
+local dbytes = _x28(st + S.L.date + 8, 4)
 if dbytes then
-cur_ano = _x1f(dbytes, 1)
+cur_ano = _x24(dbytes, 1)
 cur_mes = dbytes:byte(3)
 cur_dia = dbytes:byte(4)
 end
-_x1d("\091\083\067\065\078\093\032\067\097\114\114\101\105\114\097\032\115\116\061\048\120\037\120\032\124\032\068\097\116\097\032\097\116\117\097\108\061\037\048\050\100\047\037\048\050\100\047\037\048\052\100\032\124\032\080\097\114\116\105\100\097\032\117\115\117\097\114\105\111\058\032\037\115\032\040\037\100\041\032\120\032\037\115\032\040\037\100\041\032\124\032\116\105\100\061\037\100",
-st, cur_dia, cur_mes, cur_ano, _x31(S.home_id), S.home_id, _x31(S.away_id), S.away_id, S.current_tid)
+_x22("\091\083\067\065\078\093\032\067\097\114\114\101\105\114\097\032\115\116\061\048\120\037\120\032\124\032\068\097\116\097\032\097\116\117\097\108\061\037\048\050\100\047\037\048\050\100\047\037\048\052\100\032\124\032\080\097\114\116\105\100\097\032\117\115\117\097\114\105\111\058\032\037\115\032\040\037\100\041\032\120\032\037\115\032\040\037\100\041\032\124\032\116\105\100\061\037\100",
+st, cur_dia, cur_mes, cur_ano, _x39(S.home_id), S.home_id, _x39(S.away_id), S.away_id, S.current_tid)
 if cur_ano == 0 and cur_mes == 0 and cur_dia == 0 then
-_x1d("\091\083\067\065\078\093\032\083\101\109\032\099\097\114\114\101\105\114\097\032\097\116\105\118\097\032\110\097\032\082\065\077\032\040\100\097\116\097\032\048\048\047\048\048\047\048\048\048\048\041\032\045\062\032\097\116\105\118\097\110\100\111\032\114\111\100\097\100\097\032\115\105\109\117\108\097\100\097\032\112\097\114\097\032\065\109\105\115\116\111\115\111\047\069\120\105\098\105\099\097\111")
-_x46()
+_x22("\091\083\067\065\078\093\032\083\101\109\032\099\097\114\114\101\105\114\097\032\097\116\105\118\097\032\110\097\032\082\065\077\032\040\100\097\116\097\032\048\048\047\048\048\047\048\048\048\048\041\032\045\062\032\097\116\105\118\097\110\100\111\032\114\111\100\097\100\097\032\115\105\109\117\108\097\100\097\032\112\097\114\097\032\065\109\105\115\116\111\115\111\047\069\120\105\098\105\099\097\111")
+_x4e()
 return
 end
 local ev_base = st + S.L.events
 local my_eid, my_rid, my_mes, my_dia, my_modo, my_tod
 local fallback_eid, fallback_rid, fallback_mes, fallback_dia, fallback_modo, fallback_tod
 local candidates = {}
-local all_ev = _x23(ev_base, _x0c * _x0b)
+local played_candidates = {}
+local all_ev = _x28(ev_base, _x10 * _x0f)
 if not all_ev then
-_x1d("\091\083\067\065\078\093\032\069\082\082\079\058\032\078\097\111\032\102\111\105\032\112\111\115\115\105\118\101\108\032\108\101\114\032\097\032\116\097\098\101\108\097\032\101\118\101\110\116\115\032\101\109\032\048\120\037\120\032\045\062\032\102\097\108\108\098\097\099\107\032\097\109\105\115\116\111\115\111", ev_base)
-_x46()
+_x22("\091\083\067\065\078\093\032\069\082\082\079\058\032\078\097\111\032\102\111\105\032\112\111\115\115\105\118\101\108\032\108\101\114\032\097\032\116\097\098\101\108\097\032\101\118\101\110\116\115\032\101\109\032\048\120\037\120\032\045\062\032\102\097\108\108\098\097\099\107\032\097\109\105\115\116\111\115\111", ev_base)
+_x4e()
 return
 end
-for ei = 0, _x0c - 1 do
-local off = ei * _x0b + 1
-local id_chk = _x1f(all_ev, off)
+for ei = 0, _x10 - 1 do
+local off = ei * _x0f + 1
+local id_chk = _x24(all_ev, off)
 if id_chk == ei then
-local pk = _x20(all_ev, off + 4)
+local pk = _x25(all_ev, off + 4)
 local rid = pk % 65536
 local jogada = (math.floor(pk / 1073741824) % 2) == 1
 local modo = math.floor(pk / 268435456) % 4
 local mes = all_ev:byte(off + 10)
 local dia = all_ev:byte(off + 11)
 local tod = all_ev:byte(off + 16)
-local h = _x25(_x20(all_ev, off + 20))
-local a = _x25(_x20(all_ev, off + 24))
-if h and a and not jogada then
+local h = _x2a(_x25(all_ev, off + 20))
+local a = _x2a(_x25(all_ev, off + 24))
+if h and a then
+if not jogada then
 if h == S.home_id and a == S.away_id then
 if cur_mes > 0 and mes == cur_mes and dia == cur_dia then
 my_eid, my_rid, my_mes, my_dia, my_modo, my_tod = ei, rid, mes, dia, modo, tod
@@ -1465,44 +1660,93 @@ elseif (h == S.away_id and a == S.home_id) and not fallback_rid then
 fallback_eid, fallback_rid, fallback_mes, fallback_dia, fallback_modo, fallback_tod = ei, rid, mes, dia, modo, tod
 end
 candidates[#candidates + 1] = { eid = ei, rid = rid, mes = mes, dia = dia, tod = tod, h = h, a = a, modo = modo }
+else
+local gh = all_ev:byte(off + 28) or 0
+local ga = all_ev:byte(off + 31) or 0
+if h == S.home_id and a == S.away_id and cur_mes > 0 and mes == cur_mes and dia == cur_dia and not my_rid then
+my_eid, my_rid, my_mes, my_dia, my_modo, my_tod = ei, rid, mes, dia, modo, tod
+end
+if gh < 50 and ga < 50 then
+played_candidates[#played_candidates + 1] = { eid = ei, rid = rid, mes = mes, dia = dia, tod = tod, h = h, a = a, gh = gh, ga = ga }
+end
+end
 end
 end
 end
 if not my_rid and fallback_rid then
 my_eid, my_rid, my_mes, my_dia, my_modo, my_tod = fallback_eid, fallback_rid, fallback_mes, fallback_dia, fallback_modo, fallback_tod
 end
+local clean_tid = (S.current_tid and S.current_tid > 0 and S.current_tid < 65535) and S.current_tid or 0
 if not my_rid then
-if cur_mes > 0 and cur_dia > 0 and S.current_tid > 0 then
-my_eid, my_rid, my_mes, my_dia, my_modo, my_tod = -1, S.current_tid, cur_mes, cur_dia, 2, 0
-_x1d("\091\083\067\065\078\093\032\080\097\114\116\105\100\097\032\100\111\032\117\115\117\097\114\105\111\032\110\097\111\032\097\099\104\097\100\097\032\100\105\114\101\116\097\109\101\110\116\101\032\101\109\032\101\118\101\110\116\115\059\032\117\115\097\110\100\111\032\100\097\116\097\032\100\097\032\099\097\114\114\101\105\114\097\032\037\048\050\100\047\037\048\050\100\032\101\032\116\105\100\061\037\100",
-my_dia, my_mes, my_rid)
+if cur_mes > 0 and cur_dia > 0 and clean_tid > 0 then
+my_eid, my_rid, my_mes, my_dia, my_modo, my_tod = -1, clean_tid, cur_mes, cur_dia, 2, 0
 else
-_x1d("\091\083\067\065\078\093\032\080\097\114\116\105\100\097\032\097\116\117\097\108\032\040\037\100\032\120\032\037\100\041\032\102\111\114\097\032\100\111\032\099\097\108\101\110\100\097\114\105\111\032\100\097\032\099\097\114\114\101\105\114\097\032\045\062\032\097\116\105\118\097\110\100\111\032\114\111\100\097\100\097\032\115\105\109\117\108\097\100\097\032\112\097\114\097\032\065\109\105\115\116\111\115\111", S.home_id, S.away_id)
-_x46()
+_x22("\091\083\067\065\078\093\032\080\097\114\116\105\100\097\032\097\116\117\097\108\032\040\037\100\032\120\032\037\100\041\032\102\111\114\097\032\100\111\032\099\097\108\101\110\100\097\114\105\111\032\100\097\032\099\097\114\114\101\105\114\097\032\045\062\032\097\116\105\118\097\110\100\111\032\114\111\100\097\100\097\032\115\105\109\117\108\097\100\097\032\112\097\114\097\032\065\109\105\115\116\111\115\111", S.home_id, S.away_id)
+_x4e()
 return
 end
-else
-_x1d("\091\083\067\065\078\093\032\080\097\114\116\105\100\097\032\100\111\032\117\115\117\097\114\105\111\032\101\110\099\111\110\116\114\097\100\097\032\101\109\032\101\118\101\110\116\115\058\032\101\105\100\061\037\100\044\032\114\105\100\061\037\100\044\032\100\097\116\097\061\037\048\050\100\047\037\048\050\100\044\032\109\111\100\111\061\037\100\044\032\116\111\100\061\037\115",
-my_eid, my_rid, my_dia, my_mes, my_modo or 2, tostring(my_tod))
 end
 S.current_rid = my_rid
-local th = _x2c(S.current_tid, my_rid)
-_x2e(th)
-_x44(st, all_ev, my_rid, my_modo or 2, my_mes, my_dia)
+local th = _x34(clean_tid, my_rid)
+_x36(th)
+_x4c(st, all_ev, my_rid, my_modo or 2, my_mes, my_dia)
 local base_rid = my_rid % 1024
 local round_all = {}
 local has_diff_tod = false
+local full_round_mode = (S.round_scope == 1)
+local function is_near_round_day(c_mes, c_dia, max_diff)
+if c_mes == my_mes then return math.abs(c_dia - my_dia) <= max_diff end
+if c_mes == (my_mes % 12) + 1 and my_dia >= 28 and c_dia <= max_diff then return true end
+if my_mes == (c_mes % 12) + 1 and c_dia >= 28 and my_dia <= max_diff then return true end
+return false
+end
 for _, c in ipairs(candidates) do
-if c.eid ~= my_eid and c.mes == my_mes and c.dia == my_dia and (c.rid == my_rid or (c.rid % 1024) == base_rid) then
+if c.eid ~= my_eid and (c.rid == my_rid or (c.rid % 1024) == base_rid) then
+local same_day = (c.mes == my_mes and c.dia == my_dia)
+local near_day = same_day or (full_round_mode and is_near_round_day(c.mes, c.dia, 3))
+if near_day then
 round_all[#round_all + 1] = c
-if my_tod and c.tod ~= my_tod then has_diff_tod = true end
+if same_day and my_tod and c.tod ~= my_tod then has_diff_tod = true end
+end
+end
+end
+for _, pc in ipairs(played_candidates) do
+if pc.eid ~= my_eid and (pc.rid == my_rid or (pc.rid % 1024) == base_rid) then
+local same_day = (pc.mes == my_mes and pc.dia == my_dia)
+local near_day = same_day or (full_round_mode and is_near_round_day(pc.mes, pc.dia, 3))
+if near_day then
+S.finished_matches[#S.finished_matches + 1] = {
+eid = pc.eid, h = pc.h, a = pc.a, final_hs = pc.gh, final_as = pc.ga
+}
+end
+end
+end
+if #round_all == 0 and #S.finished_matches == 0 then
+for _, c in ipairs(candidates) do
+if c.eid ~= my_eid and (c.rid == my_rid or (c.rid % 1024) == base_rid) and is_near_round_day(c.mes, c.dia, 3) then
+round_all[#round_all + 1] = c
+end
 end
 end
 local earlier_list = {}
 local unplayed_list = {}
 local my_root = S.team_rid[S.home_id]
 local is_multi_group = S.is_multi_group
-if has_diff_tod and my_tod then
+if full_round_mode then
+for _, c in ipairs(round_all) do
+c.same_group = (is_multi_group and my_root ~= nil and S.team_rid[c.h] == my_root) or false
+unplayed_list[#unplayed_list + 1] = c
+end
+table.sort(unplayed_list, function(a, b)
+if a.same_group ~= b.same_group then return a.same_group end
+if a.dia ~= b.dia then return a.dia < b.dia end
+return a.eid < b.eid
+end)
+while #unplayed_list > 15 do
+local moved = table.remove(unplayed_list)
+earlier_list[#earlier_list + 1] = moved
+end
+elseif has_diff_tod and my_tod then
 for _, c in ipairs(round_all) do
 c.same_group = (is_multi_group and my_root ~= nil and S.team_rid[c.h] == my_root) or false
 if c.same_group then
@@ -1552,19 +1796,17 @@ end
 end
 for _, c in ipairs(earlier_list) do
 local no_draw = (not S.is_league_table) and (c.modo == 2)
-local ehs, eas = _x47(no_draw)
-S.earlier_matches[#S.earlier_matches + 1] = {
-eid = c.eid, h = c.h, a = c.a, final_hs = ehs, final_as = eas
-}
+local ehs, eas = _x4f(no_draw)
+local em = { eid = c.eid, h = c.h, a = c.a, final_hs = ehs, final_as = eas }
+S.earlier_matches[#S.earlier_matches + 1] = em
+S.finished_matches[#S.finished_matches + 1] = em
 local g_root = S.team_rid[c.h]
 if S.is_league_table and g_root and S.group_tables[g_root] then
-_x38(S.group_tables[g_root], c.h, c.a, ehs, eas)
+_x40(S.group_tables[g_root], c.h, c.a, ehs, eas)
 end
-_x1d("\091\074\079\071\079\095\065\078\084\069\082\073\079\082\095\082\079\068\065\068\065\093\032\101\105\100\061\037\100\032\124\032\037\115\032\037\100\032\120\032\037\100\032\037\115\032\040\106\097\032\101\110\099\101\114\114\097\100\111\032\109\097\105\115\032\099\101\100\111\032\110\097\032\114\111\100\097\100\097\032\045\062\032\115\111\109\097\100\111\032\110\097\032\099\108\097\115\115\105\102\105\099\097\099\097\111\041",
-c.eid, _x31(c.h), ehs, eas, _x31(c.a))
 end
 if #earlier_list > 0 and S.is_league_table then
-_x43()
+_x4b()
 end
 for _, c in ipairs(unplayed_list) do
 S.sim_matches[#S.sim_matches + 1] = {
@@ -1574,18 +1816,23 @@ no_draw = (not S.is_league_table) and (c.modo == 2),
 same_group = c.same_group and true or false,
 }
 end
+log(string.format("\037\115\032\082\111\100\097\100\097\032\114\105\100\061\037\100\032\040\037\048\050\100\047\037\048\050\100\041\058\032\037\100\032\097\111\032\118\105\118\111\044\032\037\100\032\101\110\099\101\114\114\097\100\111\115\044\032\115\099\111\112\101\061\037\100",
+_x20, my_rid, my_dia, my_mes, #S.sim_matches, #S.finished_matches, S.round_scope or 0))
 if #S.sim_matches == 0 then
-_x1d("\091\083\067\065\078\093\032\078\101\110\104\117\109\032\111\117\116\114\111\032\106\111\103\111\032\115\105\109\117\108\116\097\110\101\111\032\101\110\099\111\110\116\114\097\100\111\032\110\097\032\100\097\116\097\032\037\048\050\100\047\037\048\050\100\032\040\114\105\100\061\037\100\041", my_dia, my_mes, my_rid)
+if #S.finished_matches > 0 then
+_x4a()
+_x43(0)
+end
 return
 end
-_x45("\083\067\065\078", my_rid, my_dia, my_mes)
+_x4d("\083\067\065\078", my_rid, my_dia, my_mes)
 end
-local function _x49()
+local function _x51()
 if S.dll then return true end
 local dir = S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115"
 local h = ffi.C._x04(dir .. "\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108")
 if h == nil then
-_x1e("\070\097\108\104\097\032\097\111\032\099\097\114\114\101\103\097\114\032\037\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108", dir)
+_x23("\070\097\108\104\097\032\097\111\032\099\097\114\114\101\103\097\114\032\037\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108", dir)
 return false
 end
 local function fn(name, ct)
@@ -1596,7 +1843,7 @@ local unlock = fn("\095\108\114\103\095\048\048", "\105\110\116\032\040\042\041\
 local c_hi = 0x1A549EE8 + 0x3AE0B7DA
 local c_lo = 0x21115320 + 0x33515322
 if not unlock or unlock(c_hi, c_lo, S.sider_dir) ~= 1 then
-_x1e("\070\097\108\104\097\032\110\097\032\118\101\114\105\102\105\099\097\099\097\111\032\100\101\032\105\110\116\101\103\114\105\100\097\100\101\032\110\097\116\105\118\097\032\100\101\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108")
+_x23("\070\097\108\104\097\032\110\097\032\118\101\114\105\102\105\099\097\099\097\111\032\100\101\032\105\110\116\101\103\114\105\100\097\100\101\032\110\097\116\105\118\097\032\100\101\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108")
 return false
 end
 local install = fn("\095\108\114\103\095\048\049", "\105\110\116\032\040\042\041\040\099\111\110\115\116\032\099\104\097\114\032\042\041")
@@ -1616,8 +1863,12 @@ local get_overlay = fn("\095\108\114\103\095\049\052", "\099\111\110\115\116\032
 local pop_sound = fn("\095\108\114\103\095\049\053", "\105\110\116\032\040\042\041\040\118\111\105\100\041")
 local set_lang = fn("\095\108\114\103\095\049\054", "\118\111\105\100\032\040\042\041\040\105\110\116\041")
 local detect_lang = fn("\095\108\114\103\095\049\055", "\105\110\116\032\040\042\041\040\099\111\110\115\116\032\099\104\097\114\032\042\041")
+local set_style = fn("\095\108\114\103\095\049\056", "\118\111\105\100\032\040\042\041\040\099\111\110\115\116\032\099\104\097\114\032\042\044\032\099\111\110\115\116\032\099\104\097\114\032\042\044\032\117\105\110\116\051\050\095\116\044\032\117\105\110\116\051\050\095\116\044\032\117\105\110\116\051\050\095\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\044\032\102\108\111\097\116\041")
+local set_anim = fn("\095\108\114\103\095\049\057", "\118\111\105\100\032\040\042\041\040\105\110\116\044\032\102\108\111\097\116\044\032\117\105\110\116\051\050\095\116\044\032\117\105\110\116\051\050\095\116\044\032\117\105\110\116\051\050\095\116\044\032\102\108\111\097\116\041")
+local set_status_meta = fn("\095\108\114\103\095\050\048", "\118\111\105\100\032\040\042\041\040\099\111\110\115\116\032\099\104\097\114\032\042\044\032\105\110\116\041")
+local trigger_update = fn("\095\108\114\103\095\050\049", "\105\110\116\032\040\042\041\040\118\111\105\100\041")
 if not (install and set_theme and set_layout and push_goal and clear and get_overlay) then
-_x1e("\069\120\112\111\114\116\115\032\097\117\115\101\110\116\101\115\032\101\109\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108")
+_x23("\069\120\112\111\114\116\115\032\097\117\115\101\110\116\101\115\032\101\109\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\046\100\108\108")
 return false
 end
 S.dll = {
@@ -1627,7 +1878,8 @@ push_goal = push_goal, push_goal_ex = push_goal_ex,
 clear_round_matches = clear_round_matches, set_round_match = set_round_match,
 set_round_menu_state = set_round_menu_state, round_step_tab = round_step_tab,
 clear = clear, get_overlay = get_overlay, pop_sound = pop_sound, set_lang = set_lang,
-detect_lang = detect_lang, dir = dir,
+detect_lang = detect_lang, set_style = set_style, set_anim = set_anim,
+set_status_meta = set_status_meta, trigger_update = trigger_update, dir = dir,
 }
 if S.lang_auto and detect_lang then
 local det = detect_lang(S.sider_dir)
@@ -1635,8 +1887,8 @@ if det >= 100 then
 S.lang = det - 100
 S.lang_auto = false
 if set_lang then set_lang(S.lang) end
-_x27()
-_x1e("\073\100\105\111\109\097\032\100\111\032\106\111\103\111\032\097\117\116\111\045\100\101\116\101\099\116\097\100\111\032\110\097\032\105\110\105\099\105\097\108\105\122\097\099\097\111\058\032\037\115\032\040\115\097\108\118\111\032\110\111\032\099\111\110\102\105\103\046\105\110\105\041",
+_x2c()
+_x23("\073\100\105\111\109\097\032\100\111\032\106\111\103\111\032\097\117\116\111\045\100\101\116\101\099\116\097\100\111\032\110\097\032\105\110\105\099\105\097\108\105\122\097\099\097\111\058\032\037\115\032\040\115\097\108\118\111\032\110\111\032\099\111\110\102\105\103\046\105\110\105\041",
 S.lang == 1 and "\069\078" or (S.lang == 2 and "\069\083" or "\080\084\045\066\082"))
 elseif det >= 0 and det <= 2 then
 S.lang = det
@@ -1645,7 +1897,7 @@ end
 end
 return true
 end
-local function _x4a()
+local function _x52()
 if not S.lang_auto or not S.dll or not S.dll.detect_lang then return end
 local det = S.dll.detect_lang(S.sider_dir)
 if det >= 100 then
@@ -1653,9 +1905,9 @@ local resolved = det - 100
 S.lang = resolved
 S.lang_auto = false
 if S.dll.set_lang then S.dll.set_lang(S.lang) end
-_x2e(S.current_theme)
-_x27()
-_x1e("\073\100\105\111\109\097\032\100\111\032\106\111\103\111\032\097\117\116\111\045\100\101\116\101\099\116\097\100\111\032\100\097\032\101\110\103\105\110\101\058\032\037\115\032\040\115\097\108\118\111\032\110\111\032\099\111\110\102\105\103\046\105\110\105\041",
+_x36(S.current_theme)
+_x2c()
+_x23("\073\100\105\111\109\097\032\100\111\032\106\111\103\111\032\097\117\116\111\045\100\101\116\101\099\116\097\100\111\032\100\097\032\101\110\103\105\110\101\058\032\037\115\032\040\115\097\108\118\111\032\110\111\032\099\111\110\102\105\103\046\105\110\105\041",
 S.lang == 1 and "\069\078" or (S.lang == 2 and "\069\083" or "\080\084\045\066\082"))
 end
 end
@@ -1670,28 +1922,28 @@ S.last_user_hs = 0
 S.last_user_as = 0
 S.menu_mode = 0
 S.saved_parent_menu = 0
-_x1d("\091\083\069\084\095\084\069\065\077\083\093\032\037\115\032\040\037\100\041\032\120\032\037\115\032\040\037\100\041\032\124\032\116\111\117\114\110\097\109\101\110\116\095\105\100\061\037\115",
-_x31(S.home_id), S.home_id, _x31(S.away_id), S.away_id, tostring(S.current_tid))
+_x22("\091\083\069\084\095\084\069\065\077\083\093\032\037\115\032\040\037\100\041\032\120\032\037\115\032\040\037\100\041\032\124\032\116\111\117\114\110\097\109\101\110\116\095\105\100\061\037\115",
+_x39(S.home_id), S.home_id, _x39(S.away_id), S.away_id, tostring(S.current_tid))
 if S.dll and S.dll_installed then
 S.dll.clear()
-_x2e(_x2c(S.current_tid, 0))
+_x36(_x34(S.current_tid, 0))
 end
 end
 function m.after_set_conditions(ctx)
 S.current_tid = ctx.tournament_id or S.current_tid
 S.home_id = (S.home_id > 0) and S.home_id or (ctx.home_team or 0)
 S.away_id = (S.away_id > 0) and S.away_id or (ctx.away_team or 0)
-_x1d("\091\065\070\084\069\082\095\083\069\084\095\067\079\078\068\073\084\073\079\078\083\093\032\116\105\100\061\037\115\032\124\032\104\111\109\101\061\037\100\032\124\032\097\119\097\121\061\037\100", tostring(S.current_tid), S.home_id, S.away_id)
+_x22("\091\065\070\084\069\082\095\083\069\084\095\067\079\078\068\073\084\073\079\078\083\093\032\116\105\100\061\037\115\032\124\032\104\111\109\101\061\037\100\032\124\032\097\119\097\121\061\037\100", tostring(S.current_tid), S.home_id, S.away_id)
 if S.dll and S.dll_installed then
-_x2e(_x2c(S.current_tid, S.current_rid))
+_x36(_x34(S.current_tid, S.current_rid))
 end
 if not S.match_init_done and S.home_id > 0 and S.away_id > 0 then
-local st = _x32()
+local st = _x3a()
 S.match_init_done = true
-_x48(st)
+_x50(st)
 end
 end
-local function _x4b(mode, cur_min)
+local function _x56(mode, cur_min)
 if mode == 1 then
 if S.lang == 1 then return string.format("\076\073\086\069\032\082\079\085\078\068\032\077\065\084\067\072\069\083\032\226\128\162\032\037\100\039", cur_min)
 elseif S.lang == 2 then return string.format("\080\065\082\084\073\068\079\083\032\068\069\032\076\065\032\074\079\082\078\065\068\065\032\069\078\032\086\073\086\079\032\226\128\162\032\037\100\039", cur_min)
@@ -1707,16 +1959,16 @@ else return "\082\069\083\085\076\084\065\068\079\083\032\070\073\078\065\073\08
 end
 return ""
 end
-local function _x4c(filename)
-if not S.in_match or #S.sim_matches == 0 or type(filename) ~= "\115\116\114\105\110\103" then return end
+local function _x57(filename)
+if not S.in_match or (#S.sim_matches + #(S.finished_matches or {})) == 0 or type(filename) ~= "\115\116\114\105\110\103" then return end
 local fn = filename:gsub("\047", "\092"):lower()
 if not fn:find("\094\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092") or not fn:find("\037\046\106\115\111\110\036") then return end
 local cur_min = math.max(1, S.last_minute > 0 and S.last_minute or 1)
 if fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\109\097\116\099\104\092\109\097\116\099\104\112\097\117\115\101\046\106\115\111\110" then
-local title = _x4b(1, cur_min)
+local title = _x56(1, cur_min)
 S.saved_parent_menu = 1
-_x3c(1, title, 0)
-_x1d("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\077\101\110\117\032\100\101\032\080\097\117\115\097\032\100\101\116\101\099\116\097\100\111\032\040\037\115\041\032\045\062\032\066\097\114\114\097\032\105\110\102\101\114\105\111\114\032\097\116\105\118\097\032\040\037\100\039\041", fn, cur_min)
+_x44(1, title, 0)
+_x22("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\077\101\110\117\032\100\101\032\080\097\117\115\097\032\100\101\116\101\099\116\097\100\111\032\040\037\115\041\032\045\062\032\066\097\114\114\097\032\105\110\102\101\114\105\111\114\032\097\116\105\118\097\032\040\037\100\039\041", fn, cur_min)
 return
 end
 if fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\109\097\116\099\104\092\109\097\116\099\104\112\114\101\112\097\117\115\101\046\106\115\111\110"
@@ -1724,28 +1976,28 @@ or fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\1
 or fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\109\097\116\099\104\092\109\097\116\099\104\115\116\097\116\115\104\097\108\102\046\106\115\111\110"
 or fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\109\097\116\099\104\092\109\097\116\099\104\115\116\097\116\115\114\101\115\117\108\116\046\106\115\111\110"
 or fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\109\097\116\099\104\092\109\097\116\099\104\112\114\101\114\101\115\117\108\116\046\106\115\111\110" then
-_x3c(0, "", 0)
-_x1d("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\084\101\108\097\032\105\110\116\101\114\109\101\100\105\097\114\105\097\032\040\037\115\041\032\045\062\032\111\118\101\114\108\097\121\032\111\099\117\108\116\111\032\040\115\111\032\097\112\097\114\101\099\101\032\110\111\032\109\101\110\117\032\115\101\103\117\105\110\116\101\041", fn)
+_x44(0, "", 0)
+_x22("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\084\101\108\097\032\105\110\116\101\114\109\101\100\105\097\114\105\097\032\040\037\115\041\032\045\062\032\111\118\101\114\108\097\121\032\111\099\117\108\116\111\032\040\115\111\032\097\112\097\114\101\099\101\032\110\111\032\109\101\110\117\032\115\101\103\117\105\110\116\101\041", fn)
 return
 end
 if fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\109\097\116\099\104\092\109\097\116\099\104\104\097\108\102\116\105\109\101\046\106\115\111\110" then
-local title = _x4b(3, 45)
+local title = _x56(3, 45)
 S.saved_parent_menu = 3
-_x3c(3, title, 0)
-_x1d("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\077\101\110\117\032\100\101\032\073\110\116\101\114\118\097\108\111\032\100\101\116\101\099\116\097\100\111\032\040\037\115\041\032\045\062\032\066\097\114\114\097\032\105\110\102\101\114\105\111\114\032\097\116\105\118\097\032\040\100\101\115\097\116\105\118\097\100\111\032\112\111\114\032\112\097\100\114\097\111\041", fn)
+_x44(3, title, 0)
+_x22("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\077\101\110\117\032\100\101\032\073\110\116\101\114\118\097\108\111\032\100\101\116\101\099\116\097\100\111\032\040\037\115\041\032\045\062\032\066\097\114\114\097\032\105\110\102\101\114\105\111\114\032\097\116\105\118\097\032\040\100\101\115\097\116\105\118\097\100\111\032\112\111\114\032\112\097\100\114\097\111\041", fn)
 return
 end
 if fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\109\097\116\099\104\092\109\097\116\099\104\114\101\115\117\108\116\046\106\115\111\110" then
-local title = _x4b(5, 90)
+local title = _x56(5, 90)
 S.saved_parent_menu = 5
-_x3c(5, title, 0)
-_x1d("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\077\101\110\117\032\100\101\032\082\101\115\117\108\116\097\100\111\032\070\105\110\097\108\032\100\101\116\101\099\116\097\100\111\032\040\037\115\041\032\045\062\032\066\097\114\114\097\032\105\110\102\101\114\105\111\114\032\097\116\105\118\097\032\040\100\101\115\097\116\105\118\097\100\111\032\112\111\114\032\112\097\100\114\097\111\041", fn)
+_x44(5, title, 0)
+_x22("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\077\101\110\117\032\100\101\032\082\101\115\117\108\116\097\100\111\032\070\105\110\097\108\032\100\101\116\101\099\116\097\100\111\032\040\037\115\041\032\045\062\032\066\097\114\114\097\032\105\110\102\101\114\105\111\114\032\097\116\105\118\097\032\040\100\101\115\097\116\105\118\097\100\111\032\112\111\114\032\112\097\100\114\097\111\041", fn)
 return
 end
 if fn:find("\109\097\116\099\104\109\101\110\117\115\117\098\114\101\116\117\114\110\037\046\106\115\111\110\036") or fn:find("\109\097\116\099\104\109\101\110\117\101\110\100\037\046\106\115\111\110\036") then
 if S.saved_parent_menu > 0 then
-_x3c(S.saved_parent_menu, S.phase_title, 0)
-_x1d("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\082\101\116\111\114\110\111\032\100\101\032\115\117\098\045\109\101\110\117\032\040\037\115\041\032\045\062\032\114\101\115\116\097\117\114\097\110\100\111\032\109\101\110\117\032\037\100", fn, S.saved_parent_menu)
+_x44(S.saved_parent_menu, S.phase_title, 0)
+_x22("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\082\101\116\111\114\110\111\032\100\101\032\115\117\098\045\109\101\110\117\032\040\037\115\041\032\045\062\032\114\101\115\116\097\117\114\097\110\100\111\032\109\101\110\117\032\037\100", fn, S.saved_parent_menu)
 end
 return
 end
@@ -1757,15 +2009,15 @@ or fn == "\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\1
 or fn:find("\094\099\111\109\109\111\110\092\115\099\114\105\112\116\092\102\108\111\119\092\099\111\109\109\111\110\092\099\109\110\117\112\100\097\116\101\112\111\115\116\109\097\116\099\104") then
 S.saved_parent_menu = 0
 if S.menu_mode ~= 0 then
-_x3c(0, "", 0)
-_x1d("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\082\101\116\111\114\110\111\032\097\111\032\106\111\103\111\032\047\032\115\097\105\100\097\032\100\097\032\112\097\114\116\105\100\097\032\040\037\115\041\032\045\062\032\112\097\105\110\101\108\032\102\101\099\104\097\100\111", fn)
+_x44(0, "", 0)
+_x22("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\082\101\116\111\114\110\111\032\097\111\032\106\111\103\111\032\047\032\115\097\105\100\097\032\100\097\032\112\097\114\116\105\100\097\032\040\037\115\041\032\045\062\032\112\097\105\110\101\108\032\102\101\099\104\097\100\111", fn)
 end
 return
 end
 if S.menu_mode > 0 then
 S.saved_parent_menu = S.menu_mode
-_x3c(0, S.phase_title, 0)
-_x1d("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\083\117\098\045\109\101\110\117\032\097\098\101\114\116\111\032\040\037\115\041\032\045\062\032\112\097\105\110\101\108\032\114\101\099\111\108\104\105\100\111", fn)
+_x44(0, S.phase_title, 0)
+_x22("\091\077\069\078\085\095\082\079\068\065\068\065\093\032\083\117\098\045\109\101\110\117\032\097\098\101\114\116\111\032\040\037\115\041\032\045\062\032\112\097\105\110\101\108\032\114\101\099\111\108\104\105\100\111", fn)
 end
 end
 function m.make_key(ctx, filename)
@@ -1780,18 +2032,18 @@ if det_lg ~= nil then
 S.lang = det_lg
 S.lang_auto = false
 if S.dll and S.dll.set_lang then S.dll.set_lang(S.lang) end
-_x27()
-_x1e("\073\100\105\111\109\097\032\100\111\032\106\111\103\111\032\097\117\116\111\045\100\101\116\101\099\116\097\100\111\032\118\105\097\032\100\116\050\048\095\037\115\095\120\054\052\046\099\112\107\058\032\037\115", c3, S.lang == 1 and "\069\078" or (S.lang == 2 and "\069\083" or "\080\084\045\066\082"))
+_x2c()
+_x23("\073\100\105\111\109\097\032\100\111\032\106\111\103\111\032\097\117\116\111\045\100\101\116\101\099\116\097\100\111\032\118\105\097\032\100\116\050\048\095\037\115\095\120\054\052\046\099\112\107\058\032\037\115", c3, S.lang == 1 and "\069\078" or (S.lang == 2 and "\069\083" or "\080\084\045\066\082"))
 end
 end
 end
-_x4c(filename)
+_x57(filename)
 end
 function m.data_ready(ctx, filename)
-_x4c(filename)
+_x57(filename)
 end
 function m.overlay_on(ctx)
-if S.lang_auto then _x4a() end
+if S.lang_auto then _x52() end
 if not S.dll or not S.dll.get_overlay then return "" end
 local ptr = S.dll.get_overlay(
 S.dll_installed and 1 or 0,
@@ -1811,25 +2063,60 @@ S.lang
 if ptr == nil then return "" end
 return ffi.string(ptr)
 end
+local function _x53()
+_x2f()
+local cur_i = 1
+for i, nm in ipairs(S.theme_list) do
+if nm:lower() == (S.theme_name or "\097\117\116\111"):lower() then cur_i = i; break end
+end
+local nxt_i = (cur_i % #S.theme_list) + 1
+S.theme_name = S.theme_list[nxt_i]
+_x30(S.theme_name)
+_x36(S.current_theme)
+_x2c()
+end
+local function _x54()
+S.round_scope = (S.round_scope == 1) and 0 or 1
+if S.dll and S.dll.set_status_meta then
+S.dll.set_status_meta(S.theme_name or "\097\117\116\111", S.round_scope)
+end
+if S.in_match and S.last_minute <= 3 and S.home_id > 0 and S.away_id > 0 then
+local st = _x3a()
+_x50(st)
+end
+_x2c()
+end
+local function _x55()
+S.anim_mode = ((S.anim_mode or 0) + 1) % 4
+if S.custom_theme then S.custom_theme.anim_mode = S.anim_mode end
+_x36(S.current_theme)
+_x2c()
+end
 function m.key_down(ctx, vkey)
-if vkey == 0x33 then
+if vkey == 0x55 then
+if S.dll and S.dll.trigger_update then S.dll.trigger_update() end
+elseif vkey == 0x31 then
+_x53()
+elseif vkey == 0x32 then
+_x54()
+elseif vkey == 0x33 then
 S.lang = (S.lang + 1) % 3
 S.lang_auto = false
 if S.dll and S.dll.set_lang then S.dll.set_lang(S.lang) end
-_x2e(S.current_theme)
+_x36(S.current_theme)
 if S.menu_mode > 0 then
 local cur_min = math.max(1, S.last_minute > 0 and S.last_minute or 1)
-_x3c(S.menu_mode, _x4b(S.menu_mode, cur_min), 0)
+_x44(S.menu_mode, _x56(S.menu_mode, cur_min), 0)
 end
-_x27()
+_x2c()
 elseif vkey == 0x34 then
 S.sound_volume = math.max(0.0, math.floor((S.sound_volume - 0.10) * 100 + 0.5) / 100)
-_x36()
-_x27()
+_x3e()
+_x2c()
 elseif vkey == 0x35 then
 S.sound_volume = math.min(1.0, math.floor((S.sound_volume + 0.10) * 100 + 0.5) / 100)
-_x36()
-_x27()
+_x3e()
+_x2c()
 elseif vkey == 0x36 then
 if S.group_filter_mode == 1 then
 S.group_filter_mode = 2
@@ -1839,44 +2126,44 @@ else
 S.group_filter_mode = 1
 end
 if S.menu_mode > 0 then
-_x3b(S.menu_mode)
+_x43(S.menu_mode)
 end
-_x27()
+_x2c()
 elseif vkey == 0x37 then
-S.corner = _x19[S.corner] or 1
+S.corner = _x1d[S.corner] or 1
 S.off_x, S.off_y = 0.0, 0.0
-_x26()
-_x27()
+_x2b()
+_x2c()
 elseif vkey == 0x38 then
 S.scale = math.max(0.60, S.scale - 0.05)
-_x26()
-_x27()
+_x2b()
+_x2c()
 elseif vkey == 0x39 then
 S.scale = math.min(1.20, S.scale + 0.05)
-_x26()
-_x27()
+_x2b()
+_x2c()
 elseif vkey == 0x30 then
 S.auto_fade = not S.auto_fade
-_x33()
-_x27()
+_x3b()
+_x2c()
 elseif vkey == 0x21 then
 local dir = (S.corner == 2 or S.corner == 3) and 10.0 or -10.0
 S.off_y = S.off_y + dir
-_x26()
-_x27()
+_x2b()
+_x2c()
 elseif vkey == 0x22 then
 local dir = (S.corner == 2 or S.corner == 3) and -10.0 or 10.0
 S.off_y = S.off_y + dir
-_x26()
-_x27()
+_x2b()
+_x2c()
 elseif vkey == 0xBD then
 S.off_x = S.off_x - 10.0
-_x26()
-_x27()
+_x2b()
+_x2c()
 elseif vkey == 0xBB then
 S.off_x = S.off_x + 10.0
-_x26()
-_x27()
+_x2b()
+_x2c()
 elseif vkey == 0x08 then
 S.corner = 3
 S.scale = 0.80
@@ -1885,99 +2172,127 @@ S.duration = 7.8
 S.sound_volume = 0.65
 S.auto_fade = true
 S.group_filter_mode = 1
-_x26()
-_x33()
+_x2b()
+_x3b()
 if S.menu_mode > 0 then
-_x3b(S.menu_mode)
+_x43(S.menu_mode)
 end
-_x27()
+_x2c()
 end
 end
 function m.gamepad_input(ctx, inputs)
-if S.menu_mode <= 0 or #S.sim_matches == 0 then return end
+if S.menu_mode <= 0 or (#S.sim_matches + #(S.finished_matches or {})) == 0 then return end
 if not S.dll or not S.dll_installed or not S.dll.round_step_tab then return end
 if inputs["\082\083"] == 1 then
 S.dll.round_step_tab(1)
-_x1d("\091\077\069\078\085\095\073\078\080\085\084\093\032\082\051\032\097\099\105\111\110\097\100\111\032\045\062\032\097\118\097\110\099\097\114\032\097\098\097")
+_x22("\091\077\069\078\085\095\073\078\080\085\084\093\032\082\051\032\097\099\105\111\110\097\100\111\032\045\062\032\097\118\097\110\099\097\114\032\097\098\097")
 elseif inputs["\076\083"] == 1 then
 S.dll.round_step_tab(-1)
-_x1d("\091\077\069\078\085\095\073\078\080\085\084\093\032\076\051\032\097\099\105\111\110\097\100\111\032\045\062\032\118\111\108\116\097\114\032\097\098\097")
+_x22("\091\077\069\078\085\095\073\078\080\085\084\093\032\076\051\032\097\099\105\111\110\097\100\111\032\045\062\032\118\111\108\116\097\114\032\097\098\097")
 elseif inputs["\089"] == 1 or inputs["\098\097\099\107"] == 1 then
 S.dll.round_step_tab(99)
 end
 end
-local function _x4d()
+local function _x58()
 if not S.sim_hooked or not S.sim_data or #S.sim_matches == 0 then return end
 local n = math.min(#S.sim_matches, 16)
-local raw = _x23(S.sim_data + 8, n * 8)
+local raw = _x28(S.sim_data + 8, n * 8)
 if not raw then return end
 for i = 1, n do
 local off = (i - 1) * 8 + 1
-local synced = _x20(raw, off + 4)
+local synced = _x25(raw, off + 4)
 if synced > 0 and not S.sync_logged[i] then
 S.sync_logged[i] = true
 local sm = S.sim_matches[i]
-_x1d("\091\065\073\095\083\089\078\067\095\079\075\093\032\074\111\103\111\032\035\037\100\032\040\101\105\100\061\037\100\041\058\032\037\115\032\037\100\032\120\032\037\100\032\037\115\032\103\114\097\118\097\100\111\032\110\097\032\116\097\098\101\108\097\032\100\097\032\077\097\115\116\101\114\032\076\101\097\103\117\101\032\040\104\105\116\115\061\037\100\041",
-i, sm.eid, _x31(sm.h), sm.final_hs, sm.final_as, _x31(sm.a), synced)
+_x22("\091\065\073\095\083\089\078\067\095\079\075\093\032\074\111\103\111\032\035\037\100\032\040\101\105\100\061\037\100\041\058\032\037\115\032\037\100\032\120\032\037\100\032\037\115\032\103\114\097\118\097\100\111\032\110\097\032\116\097\098\101\108\097\032\100\097\032\077\097\115\116\101\114\032\076\101\097\103\117\101\032\040\104\105\116\115\061\037\100\041",
+i, sm.eid, _x39(sm.h), sm.final_hs, sm.final_as, _x39(sm.a), synced)
 end
 end
 end
-local function _x4e(ctx)
+local function _x59(ctx)
 local s = ctx and ctx.pes_gc_entry_sync
 if not s or not s.score or type(s.score.owner) ~= "\110\117\109\098\101\114" or s.score.owner < 0x10000 then
 return false
 end
-local st_b = _x23(s.score.owner + 8, 4)
+local st_b = _x28(s.score.owner + 8, 4)
 if not st_b then return false end
-local st = _x20(st_b, 1)
+local st = _x25(st_b, 1)
 return (st == 2 or st == 3)
 end
-local function _x4f(ctx)
+local function _x5a(ctx)
 S.frames = S.frames + 1
 if S.lang_auto and (S.frames % 60) == 0 then
-_x4a()
+_x52()
 end
 if S.dll and not S.dll_installed and S.frames >= 180 and (S.frames % 60) == 0 and S.dll_install_tries < 30 then
 S.dll_install_tries = S.dll_install_tries + 1
 if S.dll.install(S.dll.dir) == 1 then
 S.dll_installed = true
-_x26()
-_x2e(S.current_theme)
-_x1d("\091\068\051\068\049\049\093\032\072\111\111\107\032\068\051\068\049\049\032\105\110\115\116\097\108\097\100\111\032\099\111\109\032\115\117\099\101\115\115\111\032\110\111\032\102\114\097\109\101\032\037\100\032\040\099\097\110\116\111\061\037\100\044\032\101\115\099\097\108\097\061\037\046\050\102\041", S.frames, S.corner, S.scale)
+_x2b()
+_x36(S.current_theme)
+log(string.format("\037\115\032\068\051\068\049\049\032\104\111\111\107\032\099\111\110\101\099\116\097\100\111\032\110\111\032\102\114\097\109\101\032\037\100", _x20, S.frames))
 else
-_x1d("\091\068\051\068\049\049\093\032\084\101\110\116\097\116\105\118\097\032\037\100\032\100\101\032\105\110\115\116\097\108\097\114\032\104\111\111\107\032\068\051\068\049\049\032\102\097\108\104\111\117", S.dll_install_tries)
+_x22("\091\068\051\068\049\049\093\032\084\101\110\116\097\116\105\118\097\032\037\100\032\100\101\032\105\110\115\116\097\108\097\114\032\104\111\111\107\032\068\051\068\049\049\032\102\097\108\104\111\117", S.dll_install_tries)
 end
 end
 if (S.frames % 60) == 0 then
-_x4d()
+_x58()
 end
 if (S.frames % 6) == 0 then
-_x33()
+_x3b()
 end
 if S.dll and S.dll_installed and S.dll.pop_sound and S.dll.pop_sound() == 1 then
-_x36()
+_x3e()
 end
-if S.menu_mode > 0 and _x4e(ctx) then
+if S.menu_mode > 0 and _x59(ctx) then
 S.saved_parent_menu = 0
-_x3c(0, "", 0)
+_x44(0, "", 0)
 end
+local f6 = (bit.band(ffi.C._x06(0x75), 0x8000) ~= 0)
+if f6 and not S.f6_was_down and S.dll_installed then
+S.lang = (S.lang + 1) % 3
+S.lang_auto = false
+if S.dll and S.dll.set_lang then S.dll.set_lang(S.lang) end
+_x36(S.current_theme)
+if S.menu_mode > 0 then
+local cur_min = math.max(1, S.last_minute > 0 and S.last_minute or 1)
+_x44(S.menu_mode, _x56(S.menu_mode, cur_min), 0)
+end
+_x2c()
+end
+S.f6_was_down = f6
+local ins_k = (bit.band(ffi.C._x06(0x2D), 0x8000) ~= 0)
+if ins_k and not S.f7_was_down and S.dll_installed then
+_x53()
+end
+S.f7_was_down = ins_k
+local home_k = (bit.band(ffi.C._x06(0x24), 0x8000) ~= 0)
+if home_k and not S.f8_was_down and S.dll_installed then
+_x54()
+end
+S.f8_was_down = home_k
+local end_k = (bit.band(ffi.C._x06(0x23), 0x8000) ~= 0)
+if end_k and not S.f11_was_down and S.dll_installed then
+_x55()
+end
+S.f11_was_down = end_k
 local f9 = (bit.band(ffi.C._x06(0x78), 0x8000) ~= 0)
 local now_clk = os.clock()
 if f9 and not S.f9_was_down and S.dll_installed and (now_clk - S.last_f9_clock) >= 3.0 then
 S.last_f9_clock = now_clk
 local h_id = S.home_id > 0 and S.home_id or (ctx.home_team or 1255)
 local a_id = S.away_id > 0 and S.away_id or (ctx.away_team or 1254)
-local sc = _x35(h_id)
+local sc = _x3d(h_id)
 local hp, ap, hd, ad = 3, 7, 2, -1
 if #S.sim_matches > 0 then
 local sm = S.sim_matches[1]
 h_id, a_id = sm.h, sm.a
-sc = _x35(h_id)
-hp, ap, hd, ad = _x3a(h_id, a_id, S.last_user_hs, S.last_user_as, false)
+sc = _x3d(h_id)
+hp, ap, hd, ad = _x42(h_id, a_id, S.last_user_hs, S.last_user_as, false)
 end
-_x1d("\091\084\069\083\084\095\070\057\093\032\068\105\115\112\097\114\097\110\100\111\032\099\097\114\100\032\100\101\032\116\101\115\116\101\058\032\037\115\032\040\037\100\194\186\044\032\037\043\100\041\032\120\032\037\115\032\040\037\100\194\186\044\032\037\043\100\041\032\124\032\097\117\116\111\114\058\032\037\115",
-_x31(h_id), hp, hd, _x31(a_id), ap, ad, sc)
-_x3d(S.current_theme.title, h_id, a_id, 2, 1, 0, sc,
+_x22("\091\084\069\083\084\095\070\057\093\032\068\105\115\112\097\114\097\110\100\111\032\099\097\114\100\032\100\101\032\116\101\115\116\101\058\032\037\115\032\040\037\100\194\186\044\032\037\043\100\041\032\120\032\037\115\032\040\037\100\194\186\044\032\037\043\100\041\032\124\032\097\117\116\111\114\058\032\037\115",
+_x39(h_id), hp, hd, _x39(a_id), ap, ad, sc)
+_x45(_x35(S.current_theme), h_id, a_id, 2, 1, 0, sc,
 math.max(12, S.last_minute > 0 and S.last_minute or 64), hp, ap, hd, ad)
 end
 S.f9_was_down = f9
@@ -1991,8 +2306,8 @@ if not st_match or not st_match.period or st_match.period < 1 then return end
 S.in_match = true
 if not S.match_init_done and (st_match.clock_minutes or 0) >= 0 then
 S.match_init_done = true
-local st = _x32()
-_x48(st)
+local st = _x3a()
+_x50(st)
 end
 local user_hs = tonumber(st_match.home_score) or 0
 local user_as = tonumber(st_match.away_score) or 0
@@ -2000,14 +2315,15 @@ if user_hs ~= S.last_user_hs or user_as ~= S.last_user_as then
 S.last_user_hs = user_hs
 S.last_user_as = user_as
 if S.menu_mode > 0 then
-_x3b(S.menu_mode)
+_x43(S.menu_mode)
 end
 end
 local cur_min = math.floor(st_match.clock_minutes or -1)
 if cur_min > S.last_minute and cur_min <= 125 then
+local bal_sub_in = (S.last_minute < 0 and cur_min > 5)
 S.last_minute = cur_min
 if (cur_min % 15) == 0 or cur_min == 1 or cur_min == 45 or cur_min == 90 then
-_x1d("\091\067\076\079\067\075\093\032\080\097\114\116\105\100\097\032\110\111\032\109\105\110\117\116\111\032\037\100\039\032\040\112\101\114\105\111\100\111\061\037\100\041", cur_min, st_match.period or 0)
+_x22("\091\067\076\079\067\075\093\032\080\097\114\116\105\100\097\032\110\111\032\109\105\110\117\116\111\032\037\100\039\032\040\112\101\114\105\111\100\111\061\037\100\041", cur_min, st_match.period or 0)
 end
 local changed = false
 for _, g in ipairs(S.timeline) do
@@ -2017,7 +2333,8 @@ changed = true
 local sm = S.sim_matches[g.match_idx]
 if sm then
 if g.side == 0 then sm.hs = sm.hs + 1 else sm.as = sm.as + 1 end
-local hp, ap, hd, ad = _x3a(sm.h, sm.a, user_hs, user_as, false)
+if not (bal_sub_in and g.minute < cur_min - 1) then
+local hp, ap, hd, ad = _x42(sm.h, sm.a, user_hs, user_as, false)
 local should_notify_overlay = true
 if S.is_multi_group and S.group_filter_mode >= 1 and not sm.same_group then
 should_notify_overlay = false
@@ -2036,24 +2353,22 @@ elseif p_goals == 2 then
 local b_tag = (S.lang == 1) and "\032\040\066\082\065\067\069\041" or ((S.lang == 2) and "\032\040\068\079\066\076\069\084\069\041" or "\032\040\050\032\071\079\076\083\041")
 disp_scorer = g.scorer .. b_tag
 end
-_x1d("\091\071\079\076\095\078\065\095\082\079\068\065\068\065\093\032\037\100\039\032\124\032\037\115\032\040\037\100\194\186\032\037\043\100\041\032\037\100\032\120\032\037\100\032\037\115\032\040\037\100\194\186\032\037\043\100\041\032\124\032\071\111\108\032\100\101\058\032\037\115\032\040\110\111\116\105\102\105\099\097\100\111\032\110\111\032\111\118\101\114\108\097\121\041",
-g.minute, _x31(sm.h), hp, hd, sm.hs, sm.as, _x31(sm.a), ap, ad, disp_scorer)
-_x3d(_x2d(S.current_theme), sm.h, sm.a, sm.hs, sm.as, g.side, disp_scorer, g.minute, hp, ap, hd, ad)
-else
-_x1d("\091\071\079\076\095\079\085\084\082\079\095\071\082\085\080\079\095\083\073\076\069\078\067\073\079\083\079\093\032\037\100\039\032\124\032\037\115\032\040\037\100\194\186\032\037\043\100\041\032\037\100\032\120\032\037\100\032\037\115\032\040\037\100\194\186\032\037\043\100\041\032\124\032\071\111\108\032\100\101\058\032\037\115\032\040\111\099\117\108\116\111\032\110\111\032\111\118\101\114\108\097\121\032\112\101\108\111\032\102\105\108\116\114\111\032\100\101\032\103\114\117\112\111\041",
-g.minute, _x31(sm.h), hp, hd, sm.hs, sm.as, _x31(sm.a), ap, ad, g.scorer)
+_x22("\091\071\079\076\095\078\065\095\082\079\068\065\068\065\093\032\037\100\039\032\124\032\037\115\032\040\037\100\194\186\032\037\043\100\041\032\037\100\032\120\032\037\100\032\037\115\032\040\037\100\194\186\032\037\043\100\041\032\124\032\071\111\108\032\100\101\058\032\037\115\032\040\110\111\116\105\102\105\099\097\100\111\032\110\111\032\111\118\101\114\108\097\121\041",
+g.minute, _x39(sm.h), hp, hd, sm.hs, sm.as, _x39(sm.a), ap, ad, disp_scorer)
+_x45(_x35(S.current_theme), sm.h, sm.a, sm.hs, sm.as, g.side, disp_scorer, g.minute, hp, ap, hd, ad)
+end
 end
 end
 end
 end
 if changed and S.menu_mode > 0 then
-_x3b(S.menu_mode)
+_x43(S.menu_mode)
 end
 end
 end
 function m.context_reset(ctx)
-_x4d()
-_x1d("\091\067\079\078\084\069\088\084\095\082\069\083\069\084\093\032\070\105\109\032\100\101\032\099\111\110\116\101\120\116\111\032\100\097\032\112\097\114\116\105\100\097")
+_x58()
+_x22("\091\067\079\078\084\069\088\084\095\082\069\083\069\084\093\032\070\105\109\032\100\101\032\099\111\110\116\101\120\116\111\032\100\097\032\112\097\114\116\105\100\097")
 S.in_match = false
 S.match_init_done = false
 S.last_minute = -1
@@ -2071,31 +2386,35 @@ function m.init(ctx)
 S.sider_dir = ctx.sider_dir or ""
 S.debug_log_path = S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\108\105\118\101\095\100\101\098\117\103\046\108\111\103"
 S.cfg_path = S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\099\111\110\102\105\103\046\105\110\105"
+_x2d()
+if S.debug_log then
 local lf = io.open(S.debug_log_path, "\119")
 if lf then
-lf:write(string.format("\061\061\061\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\032\118\049\046\051\032\076\105\118\101\032\068\101\098\117\103\032\105\110\105\099\105\097\100\111\032\101\109\032\037\115\032\061\061\061\010", os.date("\037\089\045\037\109\045\037\100\032\037\072\058\037\077\058\037\083")))
+lf:write(string.format("\061\061\061\032\076\105\118\101\082\111\117\110\100\071\111\097\108\115\032\118\049\046\052\032\076\105\118\101\032\068\101\098\117\103\032\105\110\105\099\105\097\100\111\032\101\109\032\037\115\032\061\061\061\010", os.date("\037\089\045\037\109\045\037\100\032\037\072\058\037\077\058\037\083")))
 lf:close()
 end
-_x28()
-_x29()
+end
+_x2f()
+_x30(S.theme_name)
+_x31()
 S.base = tonumber(ffi.cast("\117\105\110\116\112\116\114\095\116", ffi.C._x01(nil)))
-for _, b in ipairs(_x08) do
-if _x23(S.base + b.getter, #b.guard) == b.guard then
+for _, b in ipairs(_x0c) do
+if _x28(S.base + b.getter, #b.guard) == b.guard then
 S.build = b
 break
 end
 end
 if not S.build then
-_x1e("\066\117\105\108\100\032\100\111\032\069\088\069\032\110\097\111\032\114\101\099\111\110\104\101\099\105\100\111\032\040\101\115\112\101\114\097\100\111\032\083\116\101\097\109\032\049\046\048\055\046\048\050\032\111\117\032\067\080\089\032\049\046\049\046\048\041")
+_x23("\066\117\105\108\100\032\100\111\032\069\088\069\032\110\097\111\032\114\101\099\111\110\104\101\099\105\100\111\032\040\101\115\112\101\114\097\100\111\032\083\116\101\097\109\032\049\046\048\055\046\048\050\032\111\117\032\067\080\089\032\049\046\049\046\048\041")
 else
-local probe1 = _x23(0x140aede84, 4)
-local probe2 = _x23(0x140aed7b4, 4)
-local is_cap = (probe1 and _x20(probe1, 1) == 0x19115e4) or (probe2 and _x20(probe2, 1) == 0x19115e4)
-S.L = is_cap and _x09.cap or _x09.normal
-_x1e("\066\117\105\108\100\032\037\115\032\100\101\116\101\099\116\097\100\111\032\040\108\097\121\111\117\116\032\037\115\041", S.build.nome, is_cap and "\099\097\112" or "\110\111\114\109\097\108")
+local probe1 = _x28(0x140aede84, 4)
+local probe2 = _x28(0x140aed7b4, 4)
+local is_cap = (probe1 and _x25(probe1, 1) == 0x19115e4) or (probe2 and _x25(probe2, 1) == 0x19115e4)
+S.L = is_cap and _x0d.cap or _x0d.normal
+_x23("\066\117\105\108\100\032\037\115\032\100\101\116\101\099\116\097\100\111\032\040\108\097\121\111\117\116\032\037\115\041", S.build.nome, is_cap and "\099\097\112" or "\110\111\114\109\097\108")
 end
 math.randomseed(os.time())
-_x2f()
+_x37()
 local wav_candidates = {
 S.sider_dir .. "\099\111\110\116\101\110\116\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\103\111\108\046\119\097\118",
 S.sider_dir .. "\109\111\100\117\108\101\115\092\076\105\118\101\082\111\117\110\100\071\111\097\108\115\092\103\111\108\046\119\097\118",
@@ -2108,8 +2427,8 @@ S.sound_path = wp
 break
 end
 end
+_x51()
 _x49()
-_x41()
 ctx.register("\115\101\116\095\116\101\097\109\115", m.set_teams)
 ctx.register("\097\102\116\101\114\095\115\101\116\095\099\111\110\100\105\116\105\111\110\115", m.after_set_conditions)
 ctx.register("\108\105\118\101\099\112\107\095\109\097\107\101\095\107\101\121", m.make_key)
@@ -2118,6 +2437,6 @@ ctx.register("\099\111\110\116\101\120\116\095\114\101\115\101\116", m.context_r
 ctx.register("\111\118\101\114\108\097\121\095\111\110", m.overlay_on)
 ctx.register("\107\101\121\095\100\111\119\110", m.key_down)
 ctx.register("\103\097\109\101\112\097\100\095\105\110\112\117\116", m.gamepad_input)
-ctx.register("\100\105\115\112\108\097\121\095\102\114\097\109\101", _x4f)
+ctx.register("\100\105\115\112\108\097\121\095\102\114\097\109\101", _x5a)
 end
 return m
