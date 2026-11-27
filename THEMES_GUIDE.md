@@ -85,6 +85,16 @@ ball_spins=2.4
   - `3` / `zoom` — **Zoom Suave.**
 - No `theme.ini`, personalize `ball_primary` (gomos principais), `ball_secondary` (pentágonos), `ball_accent` (costura/brilho Fresnel) e `ball_spins` (voltas da bola, `0.5` a `6.0`).
 
+### 🔊 Personalizando o Áudio / Bipe de Notificação de Gol
+- Você pode trocar o som do bipe/vinheta do gol por **qualquer áudio `.wav` que quiser** (ex.: vinheta da Globo, Premiere, CazéTV, ESPN, TNT Sports, etc.):
+  1. **Método Recomendado (preservado em atualizações):** coloque seu arquivo com o nome **`gol.wav`** em:
+     ```text
+     content\LiveRoundGoals\gol.wav
+     ```
+     *(Se a pasta `content\LiveRoundGoals\` não existir, basta criá-la — o mod carrega automaticamente esse arquivo com prioridade sobre o padrão!)*
+  2. **Alternativa:** substitua diretamente o arquivo `modules\LiveRoundGoals\gol.wav`.
+- Ajuste o volume de **`0%` (Mudo)** até **`100%`** com as teclas **`[4]`** / **`[5]`** no painel do Sider (salvo no `config.ini`).
+
 ---
 
 ## 🌐 Compartilhe seu Tema no GitHub!
@@ -102,5 +112,5 @@ Criou um tema bonito (Premiere, ESPN, CazéTV, Sky Sports, TNT Sports, Globo ret
 
 ## 🇺🇸 Quick Summary (English) / 🇪🇸 Resumen Rápido (Español)
 
-- **EN:** Place custom themes in `modules\LiveRoundGoals\themes\<theme_name>\theme.ini`. Supports hex ARGB/RGB colors, `corner_radius`, `border_width`, `opacity`, any Windows font (`family=`) or local `.ttf`/`.otf` file (`file=`), and customizable 3D ball transition (`mode=ball3d|ball3d_bounce|slide|zoom`, `ball_primary`, `ball_secondary`, `ball_accent`, `ball_spins`). Press **`F7`** in-game to cycle themes and **`F11`** to cycle 3D transition modes. Submit community themes via GitHub PR or Issue!
-- **ES:** Coloca temas personalizados en `modules\LiveRoundGoals\themes\<nombre>\theme.ini`. Soporta colores ARGB/RGB, `corner_radius`, `border_width`, `opacity`, fuentes de Windows (`family=`) o archivos `.ttf`/`.otf` locales (`file=`), y transición 3D del balón (`mode=ball3d|ball3d_bounce|slide|zoom`). Pulsa **`F7`** para cambiar de tema y **`F11`** para cambiar la transición 3D. Comparte tus temas en GitHub mediante PR o Issue!
+- **EN:** Place custom themes in `modules\LiveRoundGoals\themes\<theme_name>\theme.ini`. Supports hex ARGB/RGB colors, `corner_radius`, `border_width`, `opacity`, any Windows font (`family=`) or local `.ttf`/`.otf` file (`file=`), customizable 3D ball transition (`mode=ball3d|ball3d_bounce|slide|zoom`), and **custom goal notification sound** (drop any `.wav` as `content\LiveRoundGoals\gol.wav`, preserved across updates, or replace `modules\LiveRoundGoals\gol.wav`). Press **`Insert`** in-game to cycle themes and **`End`** to cycle 3D transition modes. Submit community themes via GitHub PR or Issue!
+- **ES:** Coloca temas personalizados en `modules\LiveRoundGoals\themes\<nombre>\theme.ini`. Soporta colores ARGB/RGB, `corner_radius`, `border_width`, `opacity`, fuentes de Windows (`family=`) o archivos `.ttf`/`.otf` locales (`file=`), transición 3D del balón (`mode=ball3d|ball3d_bounce|slide|zoom`) y **audio de notificación personalizado** (coloca cualquier `.wav` en `content\LiveRoundGoals\gol.wav`, conservado tras actualizaciones, o reemplaza `modules\LiveRoundGoals\gol.wav`). Pulsa **`Insert`** para cambiar de tema y **`End`** para cambiar la transición 3D. Comparte tus temas en GitHub mediante PR o Issue!

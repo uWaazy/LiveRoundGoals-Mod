@@ -23,15 +23,15 @@
 
 - **⚽ Transición 3D Suave del Balón (Estilo TV "Gol da Rodada"):**
   - Animación 3D fluida en GPU de un balón giratorio que despliega suavemente la tarjeta de gol sin tirones.
-  - Cambia el estilo en vivo con **`F11`** o en `theme.ini` (`Balón 3D Globo [Defecto]`, `Balón 3D Rebote`, `Deslize TV`, `Zoom Suave`).
-- **🎨 Temas y Fuentes Personalizables ([Ver Guía de Temas](THEMES_GUIDE.md)):**
-  - Personaliza colores, opacidad, bordes, transición 3D y **cualquier fuente de Windows o archivo `.ttf`/`.otf`** en `modules\LiveRoundGoals\themes\<tema>\theme.ini`.
-  - Incluye 3 temas listos (`globo_classic`, `ucl_neon`, `minimal_dark`) intercambiables con **`F7`** + soporte para compartir temas en GitHub!
+  - Cambia el estilo en vivo con **`End`** o en `theme.ini` (`Balón 3D Globo [Defecto]`, `Balón 3D Rebote`, `Deslize TV`, `Zoom Suave`).
+- **🎨 Temas, Fuentes y Audio Personalizables ([Ver Guía de Temas](THEMES_GUIDE.md)):**
+  - Personaliza colores, opacidad, bordes, transición 3D, **cualquier fuente de Windows o archivo `.ttf`/`.otf`** en `modules\LiveRoundGoals\themes\<tema>\theme.ini`, y **cambia el audio/sonido de notificación de gol** por cualquier `.wav` que quieras en `content\LiveRoundGoals\gol.wav` *(o reemplazando `modules\LiveRoundGoals\gol.wav`)*.
+  - Incluye 3 temas listos (`globo_classic`, `ucl_neon`, `minimal_dark`) intercambiables con **`Insert`** + soporte para compartir temas en GitHub!
 - **🌟 Soporte Oficial para Liga Máster y Ser una Leyenda (BAL):**
   - Funciona oficialmente en **Liga Máster** y **Ser una Leyenda (BAL)**, incluyendo entrada desde el banquillo en la 2ª parte sin spam de tarjetas antiguas.
-- **📅 Filtro de Jornada Alternable (`F8`):**
+- **📅 Filtro de Jornada Alternable (`Home`):**
   - **Mismo Día y Hora (Por defecto):** Muestra solo los partidos del mismo día y horario que tu encuentro.
-  - **Jornada Completa:** Pulsa **`F8`** (o `[2]` en Sider) para alternar y ver todos los partidos de la jornada.
+  - **Jornada Completa:** Pulsa **`Home`** (o `[2]` en Sider) para alternar y ver todos los partidos de la jornada.
 - **📺 Alertas de Gol estilo Transmisión de TV:**
   - Tarjetas nativas D3D11/Direct2D con temas para **25+ competiciones oficiales**, `DOBLETE` / `HAT-TRICK!` / `GOLEADA`, clasificación en vivo (`▲` / `▼`), filtro de grupos (`[6]`), multi-idioma (`PT-BR` / `EN` / `ES` + `F6`) y sonido sincronizado (`[4]` / `[5]`).
 - **🫥 Transparencia Inteligente (Auto-Fade con el Balón):**

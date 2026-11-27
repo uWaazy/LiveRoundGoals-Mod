@@ -23,15 +23,15 @@
 
 - **⚽ Transição 3D Suave "Gol da Rodada" (GPU Shader 3D):**
   - Animação 3D fluida de bola de futebol giratória (inspirada na clássica vinheta "Gol da Rodada" da TV aberta) que abre suavemente o card do placar em tempo real na GPU, sem travamentos.
-  - Personalizável em tempo real via **`F11`** ou `theme.ini` (`Bola 3D Globo [Padrão]`, `Bola 3D Quique Elástico`, `Deslize TV`, `Zoom Suave`), com cores da bola, velocidade de giro e duração editáveis.
-- **🎨 Temas & Fontes Customizáveis pelo Usuário ([Ver Guia Completo](THEMES_GUIDE.md)):**
-  - Edite cores, opacidade, bordas, cantos arredondados, transição 3D e **qualquer fonte do Windows ou arquivo `.ttf`/`.otf`** em `modules\LiveRoundGoals\themes\<tema>\theme.ini`.
-  - Já inclui 3 temas prontos (`globo_classic`, `ucl_neon`, `minimal_dark`) alternáveis com **`F7`** + suporte para enviar e compartilhar temas da comunidade no GitHub!
+  - Personalizável em tempo real via **`End`** ou `theme.ini` (`Bola 3D Globo [Padrão]`, `Bola 3D Quique Elástico`, `Deslize TV`, `Zoom Suave`), com cores da bola, velocidade de giro e duração editáveis.
+- **🎨 Temas, Fontes & Áudio Customizáveis pelo Usuário ([Ver Guia Completo](THEMES_GUIDE.md)):**
+  - Edite cores, opacidade, bordas, cantos arredondados, transição 3D, **qualquer fonte do Windows ou arquivo `.ttf`/`.otf`** em `modules\LiveRoundGoals\themes\<tema>\theme.ini`, e **troque o áudio/bipe da notificação de gol** por qualquer som `.wav` que quiser em `content\LiveRoundGoals\gol.wav` *(ou substituindo `modules\LiveRoundGoals\gol.wav`)*.
+  - Já inclui 3 temas prontos (`globo_classic`, `ucl_neon`, `minimal_dark`) alternáveis com **`Insert`** + suporte para enviar e compartilhar temas da comunidade no GitHub!
 - **🌟 Suporte Oficial à Master Liga & Rumo ao Estrelato (Become a Legend / BAL):**
   - Funciona oficialmente tanto na **Master Liga** quanto no **Rumo ao Estrelato (BAL)**, incluindo entrada vindo do banco no 2º tempo com avanço silencioso dos placares sem spam de cards antigos.
-- **📅 Filtro da Rodada Alternável (`F8`):**
+- **📅 Filtro da Rodada Alternável (`Home`):**
   - **Mesmo Dia e Horário (Padrão):** Exibe apenas os outros jogos que acontecem no mesmo dia e janela horária da sua partida.
-  - **Rodada Inteira:** Aperte **`F8`** (ou `[2]` no Sider) a qualquer momento para alternar e acompanhar todos os jogos da rodada completa.
+  - **Rodada Inteira:** Aperte **`Home`** (ou `[2]` no Sider) a qualquer momento para alternar e acompanhar todos os jogos da rodada completa.
 - **📺 Alertas de Gol estilo Transmissão de TV ("Gol na Rodada"):**
   - Cards nativos em Direct3D 11 / Direct2D com temas dinâmicos para **25+ competições oficiais**, escudos reais, destaques `2 GOLS` / `HAT-TRICK!` / `GOLEADA`, classificação ao vivo (`▲` / `▼`), filtro de fase de grupos (`[6]`), multi-idioma (`PT-BR` / `EN` / `ES` com auto-detecção + `F6`) e som de gol sincronizado (`[4]` / `[5]`).
 - **🫥 Transparência Inteligente (Auto-Fade pela Bola):**

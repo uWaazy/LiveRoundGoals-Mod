@@ -23,15 +23,15 @@
 
 - **⚽ Smooth 3D Ball Transition ("Gol da Rodada" Broadcast Style):**
   - Real-time GPU 3D-shaded spinning football animation that smoothly reveals and retracts the goal card at full frame rate with zero stutter.
-  - Cycle styles live with **`F11`** or customize in `theme.ini` (`3D Ball Globo [Default]`, `3D Ball Elastic Bounce`, `TV Slide`, `Smooth Zoom`), including ball colors, spin speed, and duration.
-- **🎨 User-Customizable Themes & Fonts ([Read the Themes Guide](THEMES_GUIDE.md)):**
-  - Edit colors, opacity, borders, rounded corners, 3D transition, and **any Windows font or custom `.ttf`/`.otf` file** in `modules\LiveRoundGoals\themes\<theme>\theme.ini`.
-  - Ships with 3 starter themes (`globo_classic`, `ucl_neon`, `minimal_dark`) switchable live with **`F7`**, plus GitHub community theme submission support!
+  - Cycle styles live with **`End`** or customize in `theme.ini` (`3D Ball Globo [Default]`, `3D Ball Elastic Bounce`, `TV Slide`, `Smooth Zoom`), including ball colors, spin speed, and duration.
+- **🎨 User-Customizable Themes, Fonts & Goal Audio ([Read the Themes Guide](THEMES_GUIDE.md)):**
+  - Edit colors, opacity, borders, rounded corners, 3D transition, **any Windows font or custom `.ttf`/`.otf` file** in `modules\LiveRoundGoals\themes\<theme>\theme.ini`, and **replace the goal notification chime/beep** with any `.wav` audio you want at `content\LiveRoundGoals\gol.wav` *(or by replacing `modules\LiveRoundGoals\gol.wav`)*.
+  - Ships with 3 starter themes (`globo_classic`, `ucl_neon`, `minimal_dark`) switchable live with **`Insert`**, plus GitHub community theme submission support!
 - **🌟 Official Master League & Become a Legend (BAL) Support:**
   - Officially supports both **Master League** and **Become a Legend (BAL)**, including silent score catch-up when subbed on mid-match without spamming old notifications.
-- **📅 Toggleable Round Match Filter (`F8`):**
+- **📅 Toggleable Round Match Filter (`Home`):**
   - **Same Day & Time (Default):** Shows only matches scheduled on the same day and time window as your match.
-  - **Full Round:** Press **`F8`** (or `[2]` in Sider) anytime to toggle and track all matches of the entire round.
+  - **Full Round:** Press **`Home`** (or `[2]` in Sider) anytime to toggle and track all matches of the entire round.
 - **📺 TV Broadcast Goal Alerts ("Gol na Rodada"):**
   - Real-time Direct3D 11 / Direct2D cards with dynamic themes for **25+ official competitions**, real club crests, `BRACE` / `HAT-TRICK!` / `ROUT` highlights, live standings delta (`▲` / `▼`), group-stage filter (`[6]`), multi-language (`PT-BR` / `EN` / `ES` with auto-detection + `F6`), and synced goal audio (`[4]` / `[5]`).
 - **🫥 Smart Ball-Occlusion Auto-Fade:**
